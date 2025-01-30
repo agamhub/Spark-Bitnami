@@ -1,0 +1,56 @@
+25/01/30 11:53:16 INFO SparkContext: Running Spark version 3.5.4
+25/01/30 11:53:16 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/01/30 11:53:16 INFO SparkContext: Java version 17.0.14
+25/01/30 11:53:16 INFO ResourceUtils: ==============================================================
+25/01/30 11:53:16 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/01/30 11:53:16 INFO ResourceUtils: ==============================================================
+25/01/30 11:53:16 INFO SparkContext: Submitted application: JOB1
+25/01/30 11:53:16 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/01/30 11:53:16 INFO ResourceProfile: Limiting resource is cpu
+25/01/30 11:53:16 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/01/30 11:53:16 INFO SecurityManager: Changing view acls to: spark
+25/01/30 11:53:16 INFO SecurityManager: Changing modify acls to: spark
+25/01/30 11:53:16 INFO SecurityManager: Changing view acls groups to: 
+25/01/30 11:53:16 INFO SecurityManager: Changing modify acls groups to: 
+25/01/30 11:53:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+25/01/30 11:53:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/01/30 11:53:16 INFO Utils: Successfully started service 'sparkDriver' on port 44811.
+25/01/30 11:53:16 INFO SparkEnv: Registering MapOutputTracker
+25/01/30 11:53:16 INFO SparkEnv: Registering BlockManagerMaster
+25/01/30 11:53:16 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/01/30 11:53:16 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/01/30 11:53:16 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/01/30 11:53:16 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d51779ff-a6b2-4a69-acf9-ec3c3a2b6a59
+25/01/30 11:53:16 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/01/30 11:53:16 INFO SparkEnv: Registering OutputCommitCoordinator
+25/01/30 11:53:16 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/01/30 11:53:16 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/01/30 11:53:16 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+25/01/30 11:53:16 INFO TransportClientFactory: Successfully created connection to spark-master/192.168.96.2:7077 after 23 ms (0 ms spent in bootstraps)
+25/01/30 11:53:17 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250130115317-0009
+25/01/30 11:53:17 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250130115317-0009/0 on worker-20250130113556-192.168.96.4-40769 (192.168.96.4:40769) with 1 core(s)
+25/01/30 11:53:17 INFO StandaloneSchedulerBackend: Granted executor ID app-20250130115317-0009/0 on hostPort 192.168.96.4:40769 with 1 core(s), 1024.0 MiB RAM
+25/01/30 11:53:17 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34723.
+25/01/30 11:53:17 INFO NettyBlockTransferService: Server created on 48d0ef92c3d9:34723
+25/01/30 11:53:17 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/01/30 11:53:17 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 48d0ef92c3d9, 34723, None)
+25/01/30 11:53:17 INFO BlockManagerMasterEndpoint: Registering block manager 48d0ef92c3d9:34723 with 434.4 MiB RAM, BlockManagerId(driver, 48d0ef92c3d9, 34723, None)
+25/01/30 11:53:17 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 48d0ef92c3d9, 34723, None)
+25/01/30 11:53:17 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 48d0ef92c3d9, 34723, None)
+25/01/30 11:53:17 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250130115317-0009/0 is now RUNNING
+25/01/30 11:53:17 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/01/30 11:53:17 INFO SparkContext: Invoking stop() from shutdown hook
+25/01/30 11:53:17 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/01/30 11:53:17 INFO SparkUI: Stopped Spark web UI at http://48d0ef92c3d9:4040
+25/01/30 11:53:17 INFO StandaloneSchedulerBackend: Shutting down all executors
+25/01/30 11:53:17 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+25/01/30 11:53:17 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/01/30 11:53:17 INFO MemoryStore: MemoryStore cleared
+25/01/30 11:53:17 INFO BlockManager: BlockManager stopped
+25/01/30 11:53:17 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/01/30 11:53:17 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/01/30 11:53:17 INFO SparkContext: Successfully stopped SparkContext
+25/01/30 11:53:17 INFO ShutdownHookManager: Shutdown hook called
+25/01/30 11:53:17 INFO ShutdownHookManager: Deleting directory /tmp/spark-74a89c0a-a3c8-4e2b-8b2d-22925e54b480/pyspark-c003e0fc-2d9e-48d0-b12b-b323637b9424
+25/01/30 11:53:17 INFO ShutdownHookManager: Deleting directory /tmp/spark-74a89c0a-a3c8-4e2b-8b2d-22925e54b480
+25/01/30 11:53:17 INFO ShutdownHookManager: Deleting directory /tmp/spark-0cc2978b-a932-4b19-bef9-9c71267045ae

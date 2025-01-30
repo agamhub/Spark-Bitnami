@@ -2,3 +2,5 @@ Pandas
 Numpy
 Scipy
 google-cloud-storage
+jupyterlab
+pyspark

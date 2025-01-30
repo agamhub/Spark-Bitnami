@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   spark-master:
-    build: . # build an image that referring to dockerfile instead
+    image: bitnami/spark:latest # build an image that referring to dockerfile instead
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -17,17 +17,19 @@ services:
       - "4040:4040"  # Spark Application UI monitoring purpose
     volumes:
       - ./data:/bitnami/spark/data
-      - ./App:/opt/bitnami/spark/scripts #bind Apps to cointainer
+      - ./SparkScripts:/opt/bitnami/spark/scripts #bind Apps to cointainer
+      - ./logs:/opt/bitnami/spark/logs #mount spark logs
+      - ./mnt/apps:/mnt/apps
     networks:
       - spark-network
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: 2g
+          cpus: "2"
+          memory: 4g
 
   spark-worker:
-    build: . # build an image that referring to dockerfile instead
+    image: bitnami/spark:latest # build an image that referring to dockerfile instead
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
@@ -46,7 +48,24 @@ services:
       - ./data:/bitnami/spark/data
     networks:
       - spark-network
-
+      
+  jupyterlab:
+    build: .  # Build an image referring to Dockerfile
+    command: python -m jupyterlab --ip "0.0.0.0" --no-browser --NotebookApp.token=''
+    container_name: jupyterlab
+    environment:
+      - JUPYTER_ENABLE_LAB=yes  # Enable JupyterLab
+      - PYSPARK_PYTHON=/opt/bitnami/python/bin/python  # Use the same Python as Spark
+    ports:
+      - "8888:8888"  # JupyterLab Web UI
+    volumes:
+      - ./app:/app  # Mount workspaces directory
+    working_dir: /app
+    networks:
+      - spark-network
+    depends_on:
+      - spark-master
+      
 networks:
   spark-network:
     driver: bridge
