@@ -1,8 +1,10 @@
 import sys
+import os
 from random import random
 from operator import add
 import logging
 import argparse
+import pandas as pd
 from pyspark.sql import SparkSession
 
 parser = argparse.ArgumentParser()
@@ -10,6 +12,8 @@ parser.add_argument("-a","--sparkname",type=str,help="Spark name",required=True)
 parser.add_argument("-b","--jobname",type=str,help="Job name",required=True)
 parser.add_argument("-c","--partitions",type=str,default=2,help="Job name",required=False)
 args = parser.parse_args()
+
+path = "/mnt/apps/Files/Config.csv" # abosulte path only no .
 
 # Configure logging
 logger = logging.getLogger()
@@ -59,14 +63,22 @@ def main():
     except Exception as e:
         logger.error(f"An error occurred: {e}")
 
+def read_pd(path):
+    df = pd.read_csv(path)
+    return df
+
 if __name__ == "__main__":
+    current_directory = os.getcwd()  # Get the current working directory
+    print(current_directory)
     logger.info(
         f"""
             List Of Parameters
             -----------------------------------------------
             SparkName Mandatory = {args.sparkname}
             JobNMame Mandatory = {args.jobname}
+            Current Diretory mounted = {current_directory}
         """
     )
     main()
+    print(read_pd(path))
     logging.shutdown()

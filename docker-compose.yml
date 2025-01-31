@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   spark-master:
-    image: bitnami/spark:latest # build an image that referring to dockerfile instead
+    #image: bitnami/spark:latest # build an image that referring to dockerfile instead
+    build: .
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -29,7 +30,8 @@ services:
           memory: 4g
 
   spark-worker:
-    image: bitnami/spark:latest # build an image that referring to dockerfile instead
+    #image: bitnami/spark:latest # build an image that referring to dockerfile instead
+    build: .
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
