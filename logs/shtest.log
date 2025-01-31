@@ -1,95 +1,95 @@
 /opt/bitnami/spark
-2025-01-31 02:23:54,868 - INFO - 
+2025-01-31 16:29:15,117 - INFO - 
             List Of Parameters
             -----------------------------------------------
             SparkName Mandatory = shtest
             JobNMame Mandatory = shtest
             Current Diretory mounted = /opt/bitnami/spark
         
-25/01/31 02:23:54 INFO SparkContext: Running Spark version 3.5.4
-25/01/31 02:23:54 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
-25/01/31 02:23:54 INFO SparkContext: Java version 17.0.14
-25/01/31 02:23:54 INFO ResourceUtils: ==============================================================
-25/01/31 02:23:54 INFO ResourceUtils: No custom resources configured for spark.driver.
-25/01/31 02:23:54 INFO ResourceUtils: ==============================================================
-25/01/31 02:23:54 INFO SparkContext: Submitted application: shtest
-25/01/31 02:23:55 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
-25/01/31 02:23:55 INFO ResourceProfile: Limiting resource is cpu
-25/01/31 02:23:55 INFO ResourceProfileManager: Added ResourceProfile id: 0
-25/01/31 02:23:55 INFO SecurityManager: Changing view acls to: spark
-25/01/31 02:23:55 INFO SecurityManager: Changing modify acls to: spark
-25/01/31 02:23:55 INFO SecurityManager: Changing view acls groups to: 
-25/01/31 02:23:55 INFO SecurityManager: Changing modify acls groups to: 
-25/01/31 02:23:55 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
-25/01/31 02:23:55 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-25/01/31 02:23:55 INFO Utils: Successfully started service 'sparkDriver' on port 34865.
-25/01/31 02:23:55 INFO SparkEnv: Registering MapOutputTracker
-25/01/31 02:23:55 INFO SparkEnv: Registering BlockManagerMaster
-25/01/31 02:23:55 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-25/01/31 02:23:55 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-25/01/31 02:23:55 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-25/01/31 02:23:55 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-067d165e-37cb-497c-96da-d89515f47374
-25/01/31 02:23:55 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
-25/01/31 02:23:55 INFO SparkEnv: Registering OutputCommitCoordinator
-25/01/31 02:23:55 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
-25/01/31 02:23:55 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-25/01/31 02:23:55 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
-25/01/31 02:23:55 INFO TransportClientFactory: Successfully created connection to spark-master/172.22.0.2:7077 after 23 ms (0 ms spent in bootstraps)
-25/01/31 02:23:55 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250131022355-0005
-25/01/31 02:23:55 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250131022355-0005/0 on worker-20250131021053-172.22.0.4-37331 (172.22.0.4:37331) with 1 core(s)
-25/01/31 02:23:55 INFO StandaloneSchedulerBackend: Granted executor ID app-20250131022355-0005/0 on hostPort 172.22.0.4:37331 with 1 core(s), 1024.0 MiB RAM
-25/01/31 02:23:55 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39963.
-25/01/31 02:23:55 INFO NettyBlockTransferService: Server created on 9f7540d7cecf:39963
-25/01/31 02:23:55 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-25/01/31 02:23:55 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 9f7540d7cecf, 39963, None)
-25/01/31 02:23:55 INFO BlockManagerMasterEndpoint: Registering block manager 9f7540d7cecf:39963 with 434.4 MiB RAM, BlockManagerId(driver, 9f7540d7cecf, 39963, None)
-25/01/31 02:23:55 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 9f7540d7cecf, 39963, None)
-25/01/31 02:23:55 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 9f7540d7cecf, 39963, None)
-25/01/31 02:23:55 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250131022355-0005/0 is now RUNNING
-25/01/31 02:23:56 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
-25/01/31 02:23:56 INFO SparkContext: Starting job: reduce at /opt/bitnami/spark/scripts/Main.py:58
-25/01/31 02:23:56 INFO DAGScheduler: Got job 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58) with 2 output partitions
-25/01/31 02:23:56 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58)
-25/01/31 02:23:56 INFO DAGScheduler: Parents of final stage: List()
-25/01/31 02:23:56 INFO DAGScheduler: Missing parents: List()
-25/01/31 02:23:56 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at reduce at /opt/bitnami/spark/scripts/Main.py:58), which has no missing parents
-25/01/31 02:23:56 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 12.2 KiB, free 434.4 MiB)
-25/01/31 02:23:56 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 434.4 MiB)
-25/01/31 02:23:56 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 9f7540d7cecf:39963 (size: 9.1 KiB, free: 434.4 MiB)
-25/01/31 02:23:57 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
-25/01/31 02:23:57 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (PythonRDD[1] at reduce at /opt/bitnami/spark/scripts/Main.py:58) (first 15 tasks are for partitions Vector(0, 1))
-25/01/31 02:23:57 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
-25/01/31 02:23:58 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.22.0.4:35850) with ID 0,  ResourceProfileId 0
-25/01/31 02:23:58 INFO BlockManagerMasterEndpoint: Registering block manager 172.22.0.4:43637 with 434.4 MiB RAM, BlockManagerId(0, 172.22.0.4, 43637, None)
-25/01/31 02:23:58 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.22.0.4, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes) 
-25/01/31 02:23:58 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.22.0.4:43637 (size: 9.1 KiB, free: 434.4 MiB)
-25/01/31 02:23:59 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (172.22.0.4, executor 0, partition 1, PROCESS_LOCAL, 8983 bytes) 
-25/01/31 02:23:59 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1518 ms on 172.22.0.4 (executor 0) (1/2)
-25/01/31 02:23:59 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 33961
-25/01/31 02:24:00 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 241 ms on 172.22.0.4 (executor 0) (2/2)
-25/01/31 02:24:00 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-25/01/31 02:24:00 INFO DAGScheduler: ResultStage 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58) finished in 3.337 s
-25/01/31 02:24:00 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
-25/01/31 02:24:00 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
-25/01/31 02:24:00 INFO DAGScheduler: Job 0 finished: reduce at /opt/bitnami/spark/scripts/Main.py:58, took 3.401339 s
-Pi is roughly 3.140720
-25/01/31 02:24:00 INFO SparkContext: SparkContext is stopping with exitCode 0.
-25/01/31 02:24:00 INFO SparkUI: Stopped Spark web UI at http://9f7540d7cecf:4040
-25/01/31 02:24:00 INFO StandaloneSchedulerBackend: Shutting down all executors
-25/01/31 02:24:00 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
-25/01/31 02:24:00 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-25/01/31 02:24:00 INFO MemoryStore: MemoryStore cleared
-25/01/31 02:24:00 INFO BlockManager: BlockManager stopped
-25/01/31 02:24:00 INFO BlockManagerMaster: BlockManagerMaster stopped
-25/01/31 02:24:00 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-25/01/31 02:24:00 INFO SparkContext: Successfully stopped SparkContext
-2025-01-31 02:24:01,213 - INFO - Pi calculation completed successfully.
+25/01/31 16:29:15 INFO SparkContext: Running Spark version 3.5.4
+25/01/31 16:29:15 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/01/31 16:29:15 INFO SparkContext: Java version 17.0.14
+25/01/31 16:29:15 INFO ResourceUtils: ==============================================================
+25/01/31 16:29:15 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/01/31 16:29:15 INFO ResourceUtils: ==============================================================
+25/01/31 16:29:15 INFO SparkContext: Submitted application: shtest
+25/01/31 16:29:15 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/01/31 16:29:15 INFO ResourceProfile: Limiting resource is cpu
+25/01/31 16:29:15 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/01/31 16:29:15 INFO SecurityManager: Changing view acls to: spark
+25/01/31 16:29:15 INFO SecurityManager: Changing modify acls to: spark
+25/01/31 16:29:15 INFO SecurityManager: Changing view acls groups to: 
+25/01/31 16:29:15 INFO SecurityManager: Changing modify acls groups to: 
+25/01/31 16:29:15 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+25/01/31 16:29:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/01/31 16:29:15 INFO Utils: Successfully started service 'sparkDriver' on port 46229.
+25/01/31 16:29:15 INFO SparkEnv: Registering MapOutputTracker
+25/01/31 16:29:15 INFO SparkEnv: Registering BlockManagerMaster
+25/01/31 16:29:15 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/01/31 16:29:15 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/01/31 16:29:15 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/01/31 16:29:15 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-392c0154-ae17-4d88-9d75-0ff8a6939d01
+25/01/31 16:29:15 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/01/31 16:29:15 INFO SparkEnv: Registering OutputCommitCoordinator
+25/01/31 16:29:15 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/01/31 16:29:15 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/01/31 16:29:16 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+25/01/31 16:29:16 INFO TransportClientFactory: Successfully created connection to spark-master/172.22.0.2:7077 after 69 ms (0 ms spent in bootstraps)
+25/01/31 16:29:16 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250131162916-0007
+25/01/31 16:29:16 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250131162916-0007/0 on worker-20250131160902-172.22.0.3-39545 (172.22.0.3:39545) with 1 core(s)
+25/01/31 16:29:16 INFO StandaloneSchedulerBackend: Granted executor ID app-20250131162916-0007/0 on hostPort 172.22.0.3:39545 with 1 core(s), 1024.0 MiB RAM
+25/01/31 16:29:16 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38201.
+25/01/31 16:29:16 INFO NettyBlockTransferService: Server created on 9f7540d7cecf:38201
+25/01/31 16:29:16 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/01/31 16:29:16 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 9f7540d7cecf, 38201, None)
+25/01/31 16:29:16 INFO BlockManagerMasterEndpoint: Registering block manager 9f7540d7cecf:38201 with 434.4 MiB RAM, BlockManagerId(driver, 9f7540d7cecf, 38201, None)
+25/01/31 16:29:16 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 9f7540d7cecf, 38201, None)
+25/01/31 16:29:16 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 9f7540d7cecf, 38201, None)
+25/01/31 16:29:16 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250131162916-0007/0 is now RUNNING
+25/01/31 16:29:16 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/01/31 16:29:17 INFO SparkContext: Starting job: reduce at /opt/bitnami/spark/scripts/Main.py:58
+25/01/31 16:29:17 INFO DAGScheduler: Got job 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58) with 2 output partitions
+25/01/31 16:29:17 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58)
+25/01/31 16:29:17 INFO DAGScheduler: Parents of final stage: List()
+25/01/31 16:29:17 INFO DAGScheduler: Missing parents: List()
+25/01/31 16:29:17 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at reduce at /opt/bitnami/spark/scripts/Main.py:58), which has no missing parents
+25/01/31 16:29:17 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 12.2 KiB, free 434.4 MiB)
+25/01/31 16:29:17 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 434.4 MiB)
+25/01/31 16:29:17 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 9f7540d7cecf:38201 (size: 9.1 KiB, free: 434.4 MiB)
+25/01/31 16:29:17 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+25/01/31 16:29:17 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (PythonRDD[1] at reduce at /opt/bitnami/spark/scripts/Main.py:58) (first 15 tasks are for partitions Vector(0, 1))
+25/01/31 16:29:17 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
+25/01/31 16:29:18 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.22.0.3:45740) with ID 0,  ResourceProfileId 0
+25/01/31 16:29:18 INFO BlockManagerMasterEndpoint: Registering block manager 172.22.0.3:39077 with 434.4 MiB RAM, BlockManagerId(0, 172.22.0.3, 39077, None)
+25/01/31 16:29:18 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.22.0.3, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes) 
+25/01/31 16:29:19 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.22.0.3:39077 (size: 9.1 KiB, free: 434.4 MiB)
+25/01/31 16:29:20 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (172.22.0.3, executor 0, partition 1, PROCESS_LOCAL, 8983 bytes) 
+25/01/31 16:29:20 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1533 ms on 172.22.0.3 (executor 0) (1/2)
+25/01/31 16:29:20 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 37323
+25/01/31 16:29:20 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 246 ms on 172.22.0.3 (executor 0) (2/2)
+25/01/31 16:29:20 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/01/31 16:29:20 INFO DAGScheduler: ResultStage 0 (reduce at /opt/bitnami/spark/scripts/Main.py:58) finished in 3.376 s
+25/01/31 16:29:20 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/01/31 16:29:20 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/01/31 16:29:20 INFO DAGScheduler: Job 0 finished: reduce at /opt/bitnami/spark/scripts/Main.py:58, took 3.433814 s
+Pi is roughly 3.136240
+25/01/31 16:29:20 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/01/31 16:29:20 INFO SparkUI: Stopped Spark web UI at http://9f7540d7cecf:4040
+25/01/31 16:29:20 INFO StandaloneSchedulerBackend: Shutting down all executors
+25/01/31 16:29:20 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+25/01/31 16:29:20 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/01/31 16:29:20 INFO MemoryStore: MemoryStore cleared
+25/01/31 16:29:20 INFO BlockManager: BlockManager stopped
+25/01/31 16:29:20 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/01/31 16:29:20 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/01/31 16:29:20 INFO SparkContext: Successfully stopped SparkContext
+2025-01-31 16:29:21,680 - INFO - Pi calculation completed successfully.
     Id|Name
 0    1|Agam
 1  2|Lorita
-2025-01-31 02:24:01,229 - INFO - Closing down clientserver connection
-25/01/31 02:24:01 INFO ShutdownHookManager: Shutdown hook called
-25/01/31 02:24:01 INFO ShutdownHookManager: Deleting directory /tmp/spark-1911b8db-d0d1-4377-84c2-374c55ac8e0a/pyspark-095810a5-273e-4bc9-a935-e63325ff27e2
-25/01/31 02:24:01 INFO ShutdownHookManager: Deleting directory /tmp/spark-4dc5154a-f103-431b-b121-f9887dd0abad
-25/01/31 02:24:01 INFO ShutdownHookManager: Deleting directory /tmp/spark-1911b8db-d0d1-4377-84c2-374c55ac8e0a
-Fri Jan 31 02:24:01 UTC 2025 - BASH - Spark job 'shtest' completed
+2025-01-31 16:29:21,718 - INFO - Closing down clientserver connection
+25/01/31 16:29:21 INFO ShutdownHookManager: Shutdown hook called
+25/01/31 16:29:21 INFO ShutdownHookManager: Deleting directory /tmp/spark-0ba509b9-c485-40f4-9e10-a1f14823d9af
+25/01/31 16:29:21 INFO ShutdownHookManager: Deleting directory /tmp/spark-0ba509b9-c485-40f4-9e10-a1f14823d9af/pyspark-b50d507b-0f0f-40c0-944f-d3779ebfbf45
+25/01/31 16:29:21 INFO ShutdownHookManager: Deleting directory /tmp/spark-f897056f-1b63-4f70-82ab-48416699f5d9
+Fri Jan 31 16:29:21 UTC 2025 - BASH - Spark job 'shtest' completed
