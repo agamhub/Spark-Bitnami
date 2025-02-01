@@ -1,0 +1,11 @@
+FROM apache/airflow:latest
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc python3-dev && \
+    apt-get clean
+
+USER airflow
+
+RUN pip install "apache-airflow" "apache-airflow-providers-apache-spark" "pyspark"

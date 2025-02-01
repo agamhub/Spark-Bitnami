@@ -2,7 +2,9 @@ version: '3.8'
 
 x-spark-common: &spark-common
     #image: bitnami/spark:latest # build an image that referring to dockerfile instead
-    build: .
+    build:
+      context: ./spark
+      dockerfile: Dockerfile.spark
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
@@ -20,10 +22,33 @@ x-spark-common: &spark-common
     networks:
       - spark-network
 
+x-airflow-common: &airflow-common
+  build:
+      context: ./airflow
+      dockerfile: Dockerfile.airflow
+  environment:
+    - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    - AIRFLOW__WEBSERVER__SECRET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+    - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    - AIRFLOW__CORE__LOGGING_LEVEL=INFO
+    - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8082
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./airflow-data/logs:/opt/airflow/logs
+    - ./airflow-data/plugins:/opt/airflow/plugins
+    - ./jobs:/opt/airflow/jobs
+  depends_on:
+    - postgres
+  networks:
+    - db-network
+
 services:
   spark-master:
     #image: bitnami/spark:latest # build an image that referring to dockerfile instead
-    build: .
+    build:
+      context: ./spark
+      dockerfile: Dockerfile.spark
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -33,7 +58,7 @@ services:
       - SPARK_SSL_ENABLED=no
       - SPARK_USER=spark
     ports:
-      - "8080:8080"  # Spark Master Web UI
+      - "9090:8080"  # Spark Master Web UI
       - "7077:7077"  # Spark Master port
       - "4040:4040"  # Spark Application UI monitoring purpose
     volumes:
@@ -57,12 +82,15 @@ services:
       - "8081"
       
   jupyterlab:
-    build: .  # Build an image referring to Dockerfile
+    build:
+      context: ./spark
+      dockerfile: Dockerfile.spark
     command: python -m jupyterlab --ip "0.0.0.0" --no-browser --NotebookApp.token=''
     container_name: jupyterlab
     environment:
       - JUPYTER_ENABLE_LAB=yes  # Enable JupyterLab
       - PYSPARK_PYTHON=/opt/bitnami/python/bin/python  # Use the same Python as Spark
+      - IPYTHONDIR=/app/.ipython
     ports:
       - "8888:8888"  # JupyterLab Web UI
     volumes:
@@ -72,7 +100,31 @@ services:
       - spark-network
     depends_on:
       - spark-master
-      
+  
+  postgres:
+    image: postgres:13 # Or your preferred Postgres version
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    networks :
+      - db-network
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - airflow-scheduler
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: bash -c "airflow db migrate && airflow users create --username admin --firstname Agam --lastname Adhinegara --role Admin --email agamadhinegara@yahoo.com --password admin && airflow scheduler"
+
 networks:
   spark-network:
+    driver: bridge
+  db-network:
     driver: bridge

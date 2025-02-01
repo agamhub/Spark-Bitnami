@@ -18,19 +18,16 @@ RUN useradd -u 1001 -g root spark && \
     chmod -R g+rwX /opt/bitnami/spark && \
     chown -R spark:root /opt/bitnami/spark/logs
 
-COPY Requirements.txt /tmp/Requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r /tmp/Requirements.txt && \
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
     pip install --upgrade pip
 
 # Set environment variables for Spark
 ENV SPARK_HOME=/opt/bitnami/spark
 ENV PATH=$SPARK_HOME/bin:$PATH
 ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH
-
-# Expose ports for Spark and JupyterLab
-EXPOSE 8888
 
 # Switch to the spark user
 USER spark
