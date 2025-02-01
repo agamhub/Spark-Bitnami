@@ -19,6 +19,8 @@ x-spark-common: &spark-common
     volumes:
       - ./data:/bitnami/spark/data
       - ./mnt/apps:/mnt/apps
+      - ./jobs:/opt/bitnami/spark/jobs
+      #- ./jobs:/opt/bitnami/spark
     networks:
       - spark-network
 
@@ -32,16 +34,20 @@ x-airflow-common: &airflow-common
     - AIRFLOW__WEBSERVER__SECRET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
     - AIRFLOW__CORE__LOAD_EXAMPLES=False
     - AIRFLOW__CORE__LOGGING_LEVEL=INFO
-    - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8082
+    - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8080
+    - DOCKER_HOST=tcp://host.docker.internal:2375
   volumes:
     - ./dags:/opt/airflow/dags
     - ./airflow-data/logs:/opt/airflow/logs
     - ./airflow-data/plugins:/opt/airflow/plugins
     - ./jobs:/opt/airflow/jobs
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./jobs:/opt/bitnami/spark
   depends_on:
     - postgres
   networks:
     - db-network
+    - spark-network
 
 services:
   spark-master:
@@ -66,6 +72,8 @@ services:
       - ./SparkScripts:/opt/bitnami/spark/scripts #bind Apps to cointainer
       - ./logs:/opt/bitnami/spark/logs #mount spark logs
       - ./mnt/apps:/mnt/apps
+      - ./jobs:/opt/bitnami/spark/jobs
+      # ./jobs:/opt/bitnami/spark
     networks:
       - spark-network
     deploy:
