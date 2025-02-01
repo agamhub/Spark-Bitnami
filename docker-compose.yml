@@ -1,5 +1,25 @@
 version: '3.8'
 
+x-spark-common: &spark-common
+    #image: bitnami/spark:latest # build an image that referring to dockerfile instead
+    build: .
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
+    depends_on:
+      - spark-master
+    volumes:
+      - ./data:/bitnami/spark/data
+      - ./mnt/apps:/mnt/apps
+    networks:
+      - spark-network
+
 services:
   spark-master:
     #image: bitnami/spark:latest # build an image that referring to dockerfile instead
@@ -30,27 +50,11 @@ services:
           memory: 4g
 
   spark-worker:
-    #image: bitnami/spark:latest # build an image that referring to dockerfile instead
-    build: .
-    container_name: spark-worker
-    environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_WORKER_CORES=1
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
-      - SPARK_USER=spark
-    depends_on:
-      - spark-master
+    <<: *spark-common
+    deploy:
+      replicas: 2
     ports:
-      - "8081:8081"  # Spark Worker Web UI
-    volumes:
-      - ./data:/bitnami/spark/data
-      - ./mnt/apps:/mnt/apps
-    networks:
-      - spark-network
+      - "8081"
       
   jupyterlab:
     build: .  # Build an image referring to Dockerfile
