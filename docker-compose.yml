@@ -35,6 +35,7 @@ x-airflow-common: &airflow-common
     - AIRFLOW__CORE__LOAD_EXAMPLES=False
     - AIRFLOW__CORE__LOGGING_LEVEL=INFO
     - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8080
+    - AIRFLOW__WEBSERVER__SHOW_TRIGGER_FORM_IF_NO_PARAMS=True #Trigger with parameter
     - DOCKER_HOST=tcp://host.docker.internal:2375
   volumes:
     - ./dags:/opt/airflow/dags

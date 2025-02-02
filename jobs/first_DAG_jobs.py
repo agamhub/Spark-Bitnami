@@ -1,3 +1,4 @@
+import sys
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import count
 
@@ -32,6 +33,9 @@ def data_quality_check(spark, file_path, checks):
 
 def main():
     spark = SparkSession.builder.appName("DataQualityCheck").getOrCreate()
+
+    batchdate = sys.argv[1]
+    print(f"Running script with batchdate: {batchdate}")
 
     file_path = "/mnt/apps/Files/fct.csv"  # Replace with the actual path
 
