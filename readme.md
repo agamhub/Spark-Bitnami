@@ -33,3 +33,13 @@
 - ctrl+p shortcut for command pallete
 - remote container >>> Remote-Containers: Reopen in Container
 - return back to local >>> Remote-Containers: Reopen Folder Locally
+
+## WSL Installation
+
+- Powershell
+- wsl -l -v >> after install docker desktop
+- install ubuntu for linux base purpose while running apps in containers docker.sock etc
+- wsl --instal -d Ubuntu
+- default user : development pass : development
+- Enable Ubuntu toggle in docker desktop
+- Enable daemon for Airflow purposes
