@@ -1,3 +1,5 @@
 venv
 devcontainer
 .git
+*.log
+mnt/apps/airflow-data/**

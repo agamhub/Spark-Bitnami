@@ -78,7 +78,7 @@ services:
       replicas: 2
     ports:
       - "8081"
-      
+
   jupyterlab:
     build:
       context: ./spark
@@ -88,12 +88,13 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes  # Enable JupyterLab
       - PYSPARK_PYTHON=/opt/bitnami/python/bin/python  # Use the same Python as Spark
-      - IPYTHONDIR=/app/.ipython
+      - IPYTHONDIR=/mnt/apps/.ipython
     ports:
       - "8888:8888"  # JupyterLab Web UI
     volumes:
-      - ./app:/app  # Mount workspaces directory
-    working_dir: /app
+      - ./mnt/apps/notebook:/mnt/apps/notebook  # Mount workspaces directory
+      - /mnt/d/database:/mnt/apps/Files  # Temporary exclude from GIT only
+    working_dir: /mnt/apps
     networks:
       - spark-network
     depends_on:
