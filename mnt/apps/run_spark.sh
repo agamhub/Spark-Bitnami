@@ -38,13 +38,26 @@ mkdir -p "$LOGDIR"
 
 echo $MAIN_ARGS
 
+# Function to handle errors
+handle_error() {
+  echo "Error running Spark job:"
+  cat "$LOGFILE"  # Display the log file content
+  exit 1
+}
+
 # Run spark-submit and redirect output to log file
 /opt/bitnami/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
   --name "$SPARKNAME" \
   --driver-memory 1g \
-  --driver-cores 1 \
-  /opt/bitnami/spark/scripts/Main.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
+  --conf spark.executor.memory=1524M \
+  --conf spark.cores.max=2 \
+  /mnt/apps/jobs/Main.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
+
+# Check the exit status of spark-submit
+if [[ $? -ne 0 ]]; then
+  handle_error
+fi
 
 echo "$(date) - BASH - Spark job '$JOBNAME' completed" | tee -a "$LOGFILE"
 echo "Spark job '$JOBNAME' submitted with name '$SPARKNAME'. Logs are in $LOGFILE"

@@ -6,8 +6,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc python3-dev openjdk-17-jdk && \
     apt-get clean
 
-RUN mkdir -p /opt/bitnami/spark   
-
 # Create the docker group (if it doesn't exist)
 RUN if ! getent group docker; then groupadd -g 1001 docker; fi   
 

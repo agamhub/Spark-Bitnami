@@ -8,8 +8,8 @@ x-spark-common: &spark-common
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=5G
+      - SPARK_WORKER_CORES=5
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
@@ -17,10 +17,7 @@ x-spark-common: &spark-common
     depends_on:
       - spark-master
     volumes:
-      - ./data:/bitnami/spark/data
       - ./mnt/apps:/mnt/apps
-      - ./jobs:/opt/bitnami/spark/jobs
-      #- ./jobs:/opt/bitnami/spark
     networks:
       - spark-network
 
@@ -37,13 +34,12 @@ x-airflow-common: &airflow-common
     - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8080
     - AIRFLOW__WEBSERVER__SHOW_TRIGGER_FORM_IF_NO_PARAMS=True #Trigger with parameter
     - DOCKER_HOST=tcp://host.docker.internal:2375
+    - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
   volumes:
-    - ./dags:/opt/airflow/dags
-    - ./airflow-data/logs:/opt/airflow/logs
-    - ./airflow-data/plugins:/opt/airflow/plugins
-    - ./jobs:/opt/airflow/jobs
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./jobs:/opt/bitnami/spark
+    - ./mnt/apps/dags:/opt/airflow/dags
+    - ./mnt/apps/airflow-data/logs:/opt/airflow/logs
+    - ./mnt/apps/airflow-data/plugins:/opt/airflow/plugins
+    - ./mnt/apps/jobs:/opt/airflow/jobs
   depends_on:
     - postgres
   networks:
@@ -64,24 +60,17 @@ services:
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
       - SPARK_USER=spark
+      - SPARK_MASTER_MEMORY:12G
+      - SPARK_MASTER_CORES:12
     ports:
       - "9090:8080"  # Spark Master Web UI
       - "7077:7077"  # Spark Master port
       - "4040:4040"  # Spark Application UI monitoring purpose
     volumes:
-      - ./data:/bitnami/spark/data
-      - ./SparkScripts:/opt/bitnami/spark/scripts #bind Apps to cointainer
-      - ./logs:/opt/bitnami/spark/logs #mount spark logs
       - ./mnt/apps:/mnt/apps
-      - ./jobs:/opt/bitnami/spark/jobs
-      # ./jobs:/opt/bitnami/spark
+      - ./mnt/apps/logs:/opt/bitnami/spark/logs
     networks:
       - spark-network
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: 4g
 
   spark-worker:
     <<: *spark-common
@@ -117,6 +106,8 @@ services:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow
+    ports:
+      - "5432:5432"
     networks :
       - db-network
 

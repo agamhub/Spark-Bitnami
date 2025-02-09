@@ -15,8 +15,7 @@ RUN apt-get update && \
 # Create the spark user and set permissions
 RUN useradd -u 1001 -g root spark && \
     chown -R spark:root /opt/bitnami/spark && \
-    chmod -R g+rwX /opt/bitnami/spark && \
-    chown -R spark:root /opt/bitnami/spark/logs
+    chmod -R g+rwX /opt/bitnami/spark
 
 COPY requirements.txt /tmp/requirements.txt
 
