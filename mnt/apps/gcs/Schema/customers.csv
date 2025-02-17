@@ -1,0 +1,13 @@
+ColumnName|DataType
+Index|Int
+Customer Id|Varchar(50)
+First Name|Varchar(400)
+Last Name|Varchar(500)
+Company|Varchar(400)
+City|Varchar(250)
+Country|Varchar(100)
+Phone 1|Varchar(100)
+Phone 2|Varchar(100)
+Email|Varchar(150)
+Subscription Date|Date
+Website|Varchar(200)

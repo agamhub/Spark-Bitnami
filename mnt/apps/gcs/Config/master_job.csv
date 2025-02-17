@@ -1,0 +1,3 @@
+JobName|SourceDirectory|FileName|FileType|Flag|Delimiter
+Renova|/mnt/apps/gcs/ETL4/LAS|customers|csv|1|","
+PAT|/mnt/apps/gcs/ETL4/CONFIG|etl4pat|csv|1|"|"

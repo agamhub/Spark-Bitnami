@@ -1,0 +1,5 @@
+ColumnName|DataType
+COA|Varchar(50)
+AMT_RPT|Decimal(18,2)
+Description|Varchar(MAX)
+AMT_ORG|Decimal(18,2)

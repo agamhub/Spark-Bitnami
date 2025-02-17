@@ -1,5 +1,3 @@
-version: '3.8'
-
 x-spark-common: &spark-common
     #image: bitnami/spark:latest # build an image that referring to dockerfile instead
     build:
@@ -8,16 +6,19 @@ x-spark-common: &spark-common
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_MEMORY=5G
-      - SPARK_WORKER_CORES=5
+      - SPARK_WORKER_MEMORY=3G
+      - SPARK_WORKER_CORES=3
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
-      - SPARK_USER=spark
+      - PY4J_VERSION=0.10.9.7  # Add py4j version
+      - SPARK_USER=root
     depends_on:
       - spark-master
     volumes:
       - ./mnt/apps:/mnt/apps
+      - /mnt/e/database/data-movement:/mnt/apps/gcs/
+      - /mnt/e/database:/mnt/apps/gcs
     networks:
       - spark-network
 
@@ -59,25 +60,21 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
-      - SPARK_USER=spark
-      - SPARK_MASTER_MEMORY:12G
-      - SPARK_MASTER_CORES:12
+      - SPARK_MASTER_MEMORY=12G
+      - SPARK_MASTER_CORES=12
+      - PY4J_VERSION=0.10.9.7  # Add py4j version
+      - SPARK_USER=root
     ports:
       - "9090:8080"  # Spark Master Web UI
       - "7077:7077"  # Spark Master port
-      - "4040:4040"  # Spark Application UI monitoring purpose
+      - "4040-4200:4040-4200"  # Spark Application UI monitoring purpose
     volumes:
       - ./mnt/apps:/mnt/apps
+      - /mnt/e/database/data-movement:/mnt/apps/gcs/
+      - /mnt/e/database:/mnt/apps/gcs
       - ./mnt/apps/logs:/opt/bitnami/spark/logs
     networks:
       - spark-network
-
-  spark-worker:
-    <<: *spark-common
-    deploy:
-      replicas: 2
-    ports:
-      - "8081"
 
   jupyterlab:
     build:
@@ -93,13 +90,18 @@ services:
       - "8888:8888"  # JupyterLab Web UI
     volumes:
       - ./mnt/apps/notebook:/mnt/apps/notebook  # Mount workspaces directory
-      - /mnt/d/database:/mnt/apps/Files  # Temporary exclude from GIT only
+      - /mnt/e/database:/mnt/apps/Files  # Temporary exclude from GIT only
     working_dir: /mnt/apps
     networks:
       - spark-network
     depends_on:
       - spark-master
-  
+
+  spark-worker:
+    <<: *spark-common
+    deploy:
+      replicas: 2
+
   postgres:
     image: postgres:13 # Or your preferred Postgres version
     container_name: postgres

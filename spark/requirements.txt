@@ -1,7 +1,6 @@
 tabulate
 pandas
 numpy
-scipy
 google-cloud-storage
 jupyterlab
 pyspark

@@ -28,8 +28,6 @@ with DAG(
         tasks_to_run = []
         if run_regular_job == "True":
             tasks_to_run.append("run_spark_job")
-            tasks_to_run.append("run_spark_job_thread1")
-            tasks_to_run.append("run_spark_job_thread2")
         if run_dqc == "True":
             tasks_to_run.append("run_spark_job_dqc")
 
@@ -43,10 +41,6 @@ with DAG(
 
     spark_name = "shtest"
     job_name = "shtest"
-    spark_name1 = "JOB1"
-    job_name1 = "JOB1"
-    spark_name2 = "JOB2"
-    job_name2 = "JOB2"
 
     command = [
         "docker",
@@ -56,26 +50,6 @@ with DAG(
         "/bin/bash",
         "-c",
         f"'/mnt/apps/run_spark.sh --sparkname {spark_name} --jobname {job_name}'",
-    ]
-
-    command1 = [
-        "docker",
-        "exec",
-        "-d",
-        "spark-master",
-        "/bin/bash",
-        "-c",
-        f"'/mnt/apps/run_spark.sh --sparkname {spark_name1} --jobname {job_name1}'",
-    ]
-
-    command2 = [
-        "docker",
-        "exec",
-        "-d",
-        "spark-master",
-        "/bin/bash",
-        "-c",
-        f"'/mnt/apps/run_spark.sh --sparkname {spark_name2} --jobname {job_name2}'",
     ]
 
     run_spark_job = BashOperator(
@@ -90,24 +64,11 @@ with DAG(
         dag=dag,
     )
 
-    run_spark_job_thread1 = BashOperator(
-        task_id="run_spark_job_thread1",
-        bash_command=" ".join(command1),
-        dag=dag,
-    )
-
-    run_spark_job_thread2 = BashOperator(
-        task_id="run_spark_job_thread2",
-        bash_command=" ".join(command2),
-        dag=dag,
-    )
-
     no_spark_jobs = PythonOperator( # Dummy Task if no spark task chosen
         task_id="no_spark_jobs",
         python_callable=lambda: print("No spark job to run"),
         dag=dag
     )
-
 
     end = PythonOperator(
         task_id="end",
@@ -116,5 +77,5 @@ with DAG(
     )
 
     start >> branch_spark_jobs
-    branch_spark_jobs >> [run_spark_job, run_spark_job_thread1,run_spark_job_thread2, run_spark_job_dqc, no_spark_jobs]
-    [run_spark_job, run_spark_job_thread1,run_spark_job_thread2 ,run_spark_job_dqc, no_spark_jobs] >> end  # Merge back to end
+    branch_spark_jobs >> [run_spark_job, run_spark_job_dqc, no_spark_jobs]
+    [run_spark_job ,run_spark_job_dqc, no_spark_jobs] >> end  # Merge back to end

@@ -1,0 +1,5 @@
+Coa|AMT_RPT|Description|AMT_ORG
+111111111111111111111111111111111111111111|2000.32|"Does this type needs conversion between Python object and internal SQL object"|123
+11111111111111|200022aa000|"Does this type needs conversion between Python object and internal SQL object"|1111
+12211111111|3000|"Does this type needs conversion between Python object and internal SQL object"|aaa
+111111111111111111111111|2000|"Does this type needs conversion between Python object and internal SQL object"|11aa1

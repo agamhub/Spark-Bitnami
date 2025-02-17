@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Create the docker group (if it doesn't exist)
-RUN if ! getent group docker; then groupadd -g 1001 docker; fi   
+RUN if ! getent group docker; then groupadd -g 1002 docker; fi   
 
 # Create the airflow user (if it doesn't exist)
 RUN if ! getent passwd airflow; then useradd -ms /bin/bash airflow; fi 

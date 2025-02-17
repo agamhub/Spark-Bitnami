@@ -43,3 +43,12 @@
 - default user : development pass : development
 - Enable Ubuntu toggle in docker desktop
 - Enable daemon for Airflow purposes
+
+## Mounting
+
+- Ensure wsl created by root or simply replace to sudo mount -t drvfs D: /mnt/d
+- wsl mounted into container
+- required add meta data to wsl and docker sudo mount -t drvfs D: /mnt/d -o metadata
+- mount -l to see details
+- sudo usermod -u 1001 spark
+- sudo usermod -g root spark

@@ -49,9 +49,11 @@ handle_error() {
 /opt/bitnami/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
   --name "$SPARKNAME" \
-  --driver-memory 1g \
-  --conf spark.executor.memory=1524M \
-  --conf spark.cores.max=2 \
+  --driver-memory 2g \
+  --num-executors 2 \
+  --executor-memory 1524M \
+  --conf spark.cores.max=3 \
+  --conf "spark.sql.shuffle.partitions=32" \
   /mnt/apps/jobs/Main.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
 
 # Check the exit status of spark-submit
