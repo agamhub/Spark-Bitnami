@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Prepare arguments for Main.py
 MAIN_ARGS=""
@@ -46,14 +47,15 @@ handle_error() {
   --name "$SPARKNAME" \
   --driver-memory 2g \
   --num-executors 2 \
-  --executor-memory 2500M \
-  --conf spark.cores.max=4 \
+  --executor-memory 1024M \
+  --conf spark.cores.max=3 \
   --conf "spark.sql.shuffle.partitions=64" \
-  /mnt/apps/jobs/SparkDataQuality.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
+  /mnt/apps/jobs/SparkDataQuality.py $MAIN_ARGS > >(tee "$LOGFILE") 2>&1
 
 # Check the exit status of spark-submit
 if [[ $? -ne 0 ]]; then
-  handle_error
+  echo "Error: Spark job failed."
+  exit 1  # Exit with error code 1
 fi
 
 echo "$(date) - BASH - Spark job '$BATCHNAME' completed" | tee -a "$LOGFILE"

@@ -5,6 +5,7 @@ from operator import add
 import logging
 import argparse
 import pandas as pd
+from tabulate import tabulate
 from threading import Thread
 from queue import Queue
 from pyspark.sql import SparkSession
@@ -156,7 +157,8 @@ def run_task(function, q):
 
 def LoadConfig(path):
     df = pandas_read_csv(path, sep="|")
-    df = df.query(f"BatchName == '{args.batchname}'")
+    df = df.query(f"(BatchName == '{args.batchname}') & (Flag == 1)")
+    logger.info(tabulate(df.head(), headers='keys', tablefmt='pretty'))
     tables = []
     for row in df.itertuples():
         filePath = row.SourceDirectory + '/' + row.FileName + '*.' + row.FileType
@@ -164,58 +166,69 @@ def LoadConfig(path):
     return tables
 
 if __name__ == "__main__":
-    path = "/mnt/apps/gcs/Config/master_job.csv"
-    parquetOutput = "/mnt/apps/gcs/data-movement/Parquet/"
-    dqcOutput = []
-    q = Queue()
-    workerCount = 2
+    try:
+        path = "/mnt/apps/gcs/Config/master_job.csv"
+        parquetOutput = "/mnt/apps/gcs/data-movement/Parquet/"
+        dqcOutput = []
+        q = Queue()
+        workerCount = 2
 
-    tables = LoadConfig(path)
-    #print("tables here",tables)
-    for table in tables:
-        q.put(table)
+        tables = LoadConfig(path)
+        if not tables: #empty array should len(tables)
+            logger.warning("Please enable flag to 1 if you want to re-order Data Movement")
+            sys.exit(0) #exit but keep airflow success
+        #print("tables here",tables)
+        for table in tables:
+            q.put(table)
 
-    spark = SparkSession. \
-                builder. \
-                appName(f"{args.batchname}").getOrCreate()
+        spark = SparkSession. \
+                    builder. \
+                    appName(f"{args.batchname}").getOrCreate()
 
-    def loadTable(path):
-        try:
-            sc = path.split("/")[5]
-            pathParquet = f"/mnt/apps/gcs/data-movement/Parquet/{sc}"
-            PathSchema = f"/mnt/apps/gcs/Schema/{sc}.csv"
-            df_dtype = construct_sql_schema(path=PathSchema, sep="|")
-            df = spark.read.csv(path, header=True, inferSchema=False, schema=df_dtype, sep="|")
-            result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
-            #print(df_final.show())
-            df_count = df_final.count()
-            if result:
-                print(dqc_msg)
-                dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Failed"})
-            else:
-                writeToParquet(df_final, pathParquet)
-                print(dqc_msg)
-                dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
-        except Exception as e:
-            raise ValueError("Error Occurred main function")
+        def loadTable(path):
+            try:
+                sc = path.split("/")[5]
+                pathParquet = f"/mnt/apps/gcs/data-movement/Parquet/{sc}"
+                PathSchema = f"/mnt/apps/gcs/Schema/{sc}.csv"
+                df_dtype = construct_sql_schema(path=PathSchema, sep="|")
+                df = spark.read.csv(path, header=True, inferSchema=False, schema=df_dtype, sep="|")
+                result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
+                #print(df_final.show())
+                df_count = df_final.count()
+                if result:
+                    print(dqc_msg)
+                    dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Failed"})
+                else:
+                    writeToParquet(df_final, pathParquet)
+                    print(dqc_msg)
+                    dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
+            except Exception as e:
+                raise ValueError("Error Occurred main function")
 
-    for i in range(workerCount):
-        t=Thread(target=run_task, args=(loadTable, q))
-        t.daemon = True
-        t.start()
+        for i in range(workerCount):
+            t=Thread(target=run_task, args=(loadTable, q))
+            t.daemon = True
+            t.start()
 
-    print("running load")
-    q.join()
-    print("running completed")
+        print("running load")
+        q.join()
+        print("running completed")
 
-    logger.info(
-        f"""
-            List Of Parameters
-            -----------------------------------------------
-            SparkName Mandatory = {args.batchname}
-            JobNMame Mandatory = {args.jobname}
-            List Of DQC result = {dqcOutput}
-        """
-    )
-    spark.stop()
-    logging.shutdown()
+        logger.info(
+            f"""
+                List Of Parameters
+                -----------------------------------------------
+                SparkName Mandatory = {args.batchname}
+                JobNMame Mandatory = {args.jobname}
+                List Of DQC result = {dqcOutput}
+            """
+        )
+        spark.stop()
+        logging.shutdown()
+    except SyntaxError as se:
+        error_message = str(se)
+        logger.info(f"Error Syntax {se.text}")
+        sys.exit(1)
+    except Exception as e:
+        logger.info(f"Unxpected error {e}")
+        sys.exit(1)

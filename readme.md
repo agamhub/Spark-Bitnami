@@ -33,6 +33,7 @@
 - ctrl+p shortcut for command pallete
 - remote container >>> Remote-Containers: Reopen in Container
 - return back to local >>> Remote-Containers: Reopen Folder Locally
+- check list of packages installed >> docker exec spark-bitnami-airflow-webserver-1 dpkg -l or pip list
 
 ## WSL Installation
 
