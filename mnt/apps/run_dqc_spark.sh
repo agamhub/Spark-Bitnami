@@ -4,14 +4,9 @@
 MAIN_ARGS=""
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --sparkname)
-            SPARKNAME="$2"
-            MAIN_ARGS+="--sparkname $SPARKNAME " # Add to Main.py args
-            shift 2
-            ;;
-        --jobname)
-            JOBNAME="$2"
-            MAIN_ARGS+="--jobname $JOBNAME "  # Add to Main.py args
+        --batchname)
+            BATCHNAME="$2"
+            MAIN_ARGS+="--batchname $BATCHNAME " # Add to Main.py args
             shift 2
             ;;
        *)
@@ -23,15 +18,15 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check if both sparkname and jobname are provided
-if [ -z "$SPARKNAME" ] || [ -z "$JOBNAME" ]; then
-  echo "Error: Both --sparkname and --jobname options are required."
-  echo "Usage: ./run_spark.sh --sparkname <sparkname> --jobname <jobname>"
+if [ -z "$BATCHNAME" ]; then
+  echo "Error: argument --batchname is required."
+  echo "Usage: ./run_dqc_spark.sh --batchname <batchname>"
   exit 1
 fi
 
 # Set variables (LOGDIR remains the same)
 LOGDIR="./logs"
-LOGFILE="$LOGDIR/$JOBNAME.log"
+LOGFILE="$LOGDIR/$BATCHNAME.log"
 
 # Create log directory if it doesn't exist
 mkdir -p "$LOGDIR"
@@ -52,14 +47,14 @@ handle_error() {
   --driver-memory 2g \
   --num-executors 2 \
   --executor-memory 2500M \
-  --conf spark.cores.max=5 \
+  --conf spark.cores.max=4 \
   --conf "spark.sql.shuffle.partitions=64" \
-  /mnt/apps/jobs/Main.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
+  /mnt/apps/jobs/SparkDataQuality.py $MAIN_ARGS 2>&1 | tee "$LOGFILE"
 
 # Check the exit status of spark-submit
 if [[ $? -ne 0 ]]; then
   handle_error
 fi
 
-echo "$(date) - BASH - Spark job '$JOBNAME' completed" | tee -a "$LOGFILE"
-echo "Spark job '$JOBNAME' submitted with name '$SPARKNAME'. Logs are in $LOGFILE"
+echo "$(date) - BASH - Spark job '$BATCHNAME' completed" | tee -a "$LOGFILE"
+echo "Spark job '$BATCHNAME' submitted. Logs are in $LOGFILE"

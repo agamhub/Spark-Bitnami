@@ -52,3 +52,6 @@
 - mount -l to see details
 - sudo usermod -u 1001 spark
 - sudo usermod -g root spark
+- free -h >> check memory available on wsl2
+- create .wslconfig under c:/user [wsl2] section
+- monitor docker stats to check memory usage and I/O

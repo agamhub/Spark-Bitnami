@@ -76,6 +76,13 @@ with DAG(
         dag=dag,
     )
 
+    batch01 = PythonOperator(
+        task_id="ETL1_BATCH01",
+        python_callable=lambda: print("Jobs completed successfully"),
+        dag=dag,
+    )
+
     start >> branch_spark_jobs
     branch_spark_jobs >> [run_spark_job, run_spark_job_dqc, no_spark_jobs]
     [run_spark_job ,run_spark_job_dqc, no_spark_jobs] >> end  # Merge back to end
+    [run_spark_job_dqc] >> batch01

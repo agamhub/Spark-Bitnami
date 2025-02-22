@@ -6,7 +6,7 @@ import logging
 import argparse
 import pandas as pd
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, length, regexp_replace
+from pyspark.sql.functions import col, length, regexp_replace, lit
 from pyspark.sql.types import *
 
 parser = argparse.ArgumentParser()
@@ -33,9 +33,7 @@ stream_handler.setFormatter(formatter)
 # Add both handlers
 logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
-# Add both handlers
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
+
 
 def spark_read_csv_from_os(spark, file_path, schema, header=True, **options):
     """
@@ -129,6 +127,8 @@ def validateDecimal(**kwargs):
     df_contents = kwargs["df_contents"]
     is_valid = False
     errors = []
+    dqcId = "DQ000001"
+
     for field in kwargs["dtypes"]:
         colName = field.name
         dType = str(field.dataType)
@@ -145,11 +145,14 @@ def validateDecimal(**kwargs):
                 is_valid = True
                 sample_size = min(100, empty_count)
                 invalid_rows = df_empty.select(colName).take(sample_size)
-                error_msg = (f"Invalid {colName} values (containing only non-numeric characters) in {FullPathSchema}. Total count: {empty_count}")
+                error_msg = (f"Invalid {colName} values (containing only non-numeric characters) in {FullPathSchema}. Total count: {invalid_rows}")
                 errors.append(error_msg)
             df_contents = df_contents.drop(f"{colName}_cleaned") 
+    if is_valid == False:        
+        error_msg = "DDL Decimal/Int Data Type Structure Checks Passed."
+        errors.append(error_msg)
     msg = "\n".join(errors) if errors else "Data Quality Check Passed."
-    return is_valid, msg, df_contents
+    return is_valid, errors, df_contents, dqcId
 
 def writeOptions(df, dataMovement, **kwargs):
     base_options = {  # Keep this separate
@@ -158,15 +161,28 @@ def writeOptions(df, dataMovement, **kwargs):
         "quote": '"'
     }
     base_options.update(kwargs)
+
+    # existing_columns = df.columns
+    # columns_to_clone = len(existing_columns)
+
+    # for i in range(240):
+    #     if i < columns_to_clone:
+    #         original_col_name = existing_columns[i]
+    #         new_col_name = f"Cloned_{original_col_name}"
+    #         df = df.withColumn(new_col_name, col(original_col_name))
+    #     else:
+    #         new_col_name = f"Cloned_{i + 1}"
+    #         df = df.withColumn(new_col_name, lit(""))
     
-    df.repartition(30).write.format("csv").mode("overwrite").options(**base_options).save(dataMovement)
+    #df.coalesce(50).write.parquet(dataMovement, mode="overwrite", compression="snappy")
+    df.coalesce(50).write.format("csv").mode("overwrite").options(**base_options).save(dataMovement)
 
 def writeToParquet(df, path, schema):
-    df = df.repartition(30)
+    df = df.coalesce(60)
     df.write.parquet(path, mode="overwrite")
-    df_read_parquet = spark.read.parquet(path, schema=schema)
+    #df_read_parquet = spark.read.parquet(path, schema=schema)
 
-    return df_read_parquet
+    #return df_read_parquet
 
 if __name__ == "__main__":
     try:
@@ -174,28 +190,36 @@ if __name__ == "__main__":
         pathSchema = "/mnt/apps/gcs/Schema/"
         outputFile = "/mnt/apps/gcs/data-movement/"
         parquetOutput = "/mnt/apps/gcs/data-movement/Parquet/"
+        dqcOutput = []
 
-        df = pandas_read_csv(path,sep="|")
-        #df = df.query("JobName == 'PAT'") #for filter debugging purposes only
+        spark = SparkSession. \
+                    builder. \
+                    appName(f"{args.jobname}").getOrCreate()
+        
+        df = pandas_read_csv(path, sep="|")
+        df = df.query("JobName == 'Renova'") #for filter debugging purposes only
 
         for row in df.itertuples():  # Collects all data to the driver - NOT recommended for large datasets
-            filePath = row.SourceDirectory + '/' + row.FileName + '*' + '.' + row.FileType
+            filePath = row.SourceDirectory + '/' + row.FileName + '*.' + row.FileType
             FullPathSchema = pathSchema + row.FileName + '.' + row.FileType
             dataMovement = outputFile + row.JobName
             dataMovementParquet = parquetOutput + row.JobName
-            spark = SparkSession. \
-                    builder. \
-                    appName(f"{row.JobName}").getOrCreate()
             df_dtype = construct_sql_schema(path=FullPathSchema, sep="|")
             df = spark_read_csv_from_os(spark, filePath, schema=df_dtype, quote='"', sep=row.Delimiter)
-            result, dqc_msg, df_final = validateDecimal(dtypes=df_dtype, df_contents=df)
+            result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
+            df_count = df_final.count()
+
             if result:
                 #parquet_df = writeToParquet(df, dataMovementParquet, schema=df_dtype)
-                writeOptions(df_final, dataMovement, compression="gzip")
+                #writeOptions(df_final, dataMovement, compression="gzip")
+                #writeOptions(df_final, dataMovement)
+                dqcOutput.append({"JobName":row.JobName, "Path":row.SourceDirectory, "dqcID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Failed"})
                 logger.info(dqc_msg)
             else:
-                #parquet_df = writeToParquet(df, dataMovementParquet, schema=df_dtype)
-                writeOptions(df_final, dataMovement, compression="gzip")
+                writeToParquet(df, dataMovementParquet, schema=df_dtype)
+                #writeOptions(df_final, dataMovement, compression="gzip")
+                #writeOptions(df_final, dataMovement)
+                dqcOutput.append({"JobName":row.JobName, "Path":row.SourceDirectory, "dqcID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
                 logger.info(dqc_msg)
     
         logger.info(
@@ -204,6 +228,7 @@ if __name__ == "__main__":
                 -----------------------------------------------
                 SparkName Mandatory = {args.sparkname}
                 JobNMame Mandatory = {args.jobname}
+                List Of DQC result = {dqcOutput}
             """
         )
 

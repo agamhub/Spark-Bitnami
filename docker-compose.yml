@@ -6,7 +6,7 @@ x-spark-common: &spark-common
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_MEMORY=3G
+      - SPARK_WORKER_MEMORY=2G
       - SPARK_WORKER_CORES=3
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
@@ -21,7 +21,7 @@ x-spark-common: &spark-common
       - /mnt/e/database:/mnt/apps/gcs
     networks:
       - spark-network
-
+      
 x-airflow-common: &airflow-common
   build:
       context: ./airflow
@@ -60,8 +60,6 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
-      - SPARK_MASTER_MEMORY=12G
-      - SPARK_MASTER_CORES=12
       - PY4J_VERSION=0.10.9.7  # Add py4j version
       - SPARK_USER=root
     ports:
@@ -100,7 +98,7 @@ services:
   spark-worker:
     <<: *spark-common
     deploy:
-      replicas: 2
+      replicas: 4
 
   postgres:
     image: postgres:13 # Or your preferred Postgres version
