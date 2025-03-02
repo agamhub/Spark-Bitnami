@@ -32,7 +32,7 @@ x-airflow-common: &airflow-common
     - AIRFLOW__WEBSERVER__SECRET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
     - AIRFLOW__CORE__LOAD_EXAMPLES=False
     - AIRFLOW__CORE__LOGGING_LEVEL=INFO
-    - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8080
+    - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8083
     - AIRFLOW__WEBSERVER__SHOW_TRIGGER_FORM_IF_NO_PARAMS=True #Trigger with parameter
     - DOCKER_HOST=tcp://host.docker.internal:2375
     - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
@@ -63,9 +63,11 @@ services:
       - PY4J_VERSION=0.10.9.7  # Add py4j version
       - SPARK_USER=root
     ports:
-      - "9090:8080"  # Spark Master Web UI
+      - "8080:8080"  # Spark Master Web UI
       - "7077:7077"  # Spark Master port
-      - "4040-4200:4040-4200"  # Spark Application UI monitoring purpose
+      - "4040-4045:4040-4045"  # Spark Application UI monitoring purpose
+      - "18080:18080" # Spark Log UI #
+      - "4040:4040"
     volumes:
       - ./mnt/apps:/mnt/apps
       - /mnt/e/database/data-movement:/mnt/apps/gcs/
@@ -86,6 +88,7 @@ services:
       - IPYTHONDIR=/mnt/apps/.ipython
     ports:
       - "8888:8888"  # JupyterLab Web UI
+      - "4222:4222"
     volumes:
       - ./mnt/apps/notebook:/mnt/apps/notebook  # Mount workspaces directory
       - /mnt/e/database:/mnt/apps/Files  # Temporary exclude from GIT only
@@ -98,7 +101,7 @@ services:
   spark-worker:
     <<: *spark-common
     deploy:
-      replicas: 4
+      replicas: 3
 
   postgres:
     image: postgres:13 # Or your preferred Postgres version
@@ -116,7 +119,7 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      - "8083:8083"
     depends_on:
       - airflow-scheduler
 

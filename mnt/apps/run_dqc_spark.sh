@@ -27,7 +27,7 @@ fi
 
 # Set variables (LOGDIR remains the same)
 LOGDIR="./logs"
-LOGFILE="$LOGDIR/$BATCHNAME.log"
+LOGFILE="$LOGDIR/${BATCHNAME}_DQC.log"
 
 # Create log directory if it doesn't exist
 mkdir -p "$LOGDIR"
@@ -47,7 +47,7 @@ handle_error() {
   --name "$SPARKNAME" \
   --driver-memory 2g \
   --num-executors 2 \
-  --executor-memory 1024M \
+  --executor-memory 512M \
   --conf spark.cores.max=3 \
   --conf "spark.sql.shuffle.partitions=64" \
   /mnt/apps/jobs/SparkDataQuality.py $MAIN_ARGS > >(tee "$LOGFILE") 2>&1

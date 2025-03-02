@@ -34,22 +34,23 @@ mkdir -p "$LOGDIR"
 
 echo $MAIN_ARGS
 
-# Function to handle errors
-handle_error() {
-  echo "Error running Spark job:"
-  cat "$LOGFILE"  # Display the log file content
-  exit 1
-}
+# exit directly from here
+python3 -c "import os; import sys; sys.path.append('/mnt/apps/jobs'); from Services import get_spark_app_id; app_name = sys.argv[1]; exit(get_spark_app_id(app_name))" "$BATCHNAME"
+
+PYTHON_RETURN=$?
+
+if [ $PYTHON_RETURN -eq 0 ]; then
+  echo "Spark Application '$BATCHNAME' is not RUNNING, spark submission is in progress."
 
 # Run spark-submit and redirect output to log file
 /opt/bitnami/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
   --name "$SPARKNAME" \
-  --driver-memory 2g \
+  --driver-memory 1g \
   --num-executors 2 \
   --executor-memory 1024M \
-  --conf spark.cores.max=3 \
-  --conf "spark.sql.shuffle.partitions=24" \
+  --conf spark.cores.max=4 \
+  --conf "spark.sql.shuffle.partitions=32" \
   /mnt/apps/jobs/SparkDataMovement.py $MAIN_ARGS > >(tee "$LOGFILE") 2>&1
 
 # Check the exit status of spark-submit
@@ -60,3 +61,5 @@ fi
 
 echo "$(date) - BASH - Spark job '$BATCHNAME' completed" | tee -a "$LOGFILE"
 echo "Spark job '$BATCHNAME' submitted. Logs are in $LOGFILE"
+
+fi

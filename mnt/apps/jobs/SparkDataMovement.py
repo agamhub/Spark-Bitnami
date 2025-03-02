@@ -5,17 +5,18 @@ from operator import add
 import logging
 import argparse
 import pandas as pd
+import atexit
+from datetime import datetime
 from tabulate import tabulate
 from threading import Thread
 from queue import Queue
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, length, regexp_replace, lit
+from pyspark.sql.functions import col, length, regexp_replace, lit, count, to_date, udf
 from pyspark.sql.types import *
 from Services import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-a","--batchname",type=str,help="Batch name",required=True)
-parser.add_argument("-b","--jobname",type=str,help="Job name",required=False)
 args = parser.parse_args()
 
 # Configure logging
@@ -37,7 +38,7 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
 
-def spark_read_csv_from_os(spark, file_path, schema, header=True, **options):
+def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
     """
     Reads a CSV file from the operating system into a Spark DataFrame.
 
@@ -58,8 +59,32 @@ def spark_read_csv_from_os(spark, file_path, schema, header=True, **options):
     Raises:
        FileNotFoundError: If the file path doesn't exist.
     """
+    base_options = {
+        "inferSchema": "False",
+        "header": "True",
+        "quote": '"',
+        "columnNameOfCorruptRecord": "rejected_records",
+        "mode": "PERMISSIVE"
+    }
+    base_options.update(kwargs)
+
     try:
-        df = spark.read.csv(file_path, header=header, inferSchema=False, schema=schema, **options)
+        schema = StructType(schema.fields + [StructField("rejected_records", StringType(), True)])
+        df = spark.read.options(**base_options).schema(schema).csv(file_path)
+
+        rejected_df = df.filter(col("rejected_records").isNotNull()).withColumn(
+            "error_details", lit("Error DDL please check contents"))
+        rejected_df = rejected_df.drop("rejected_records")
+        rejected_df. \
+                coalesce(1).write.csv(
+                    path=kwargs["logPath"],
+                    mode="overwrite",
+                    sep="|",
+                    header=True #add header if needed.
+                    )
+        rejected_df.show()
+        df = df.drop("rejected_records")
+
         return df
     except FileNotFoundError:
         print(f"Error: File not found at path: {file_path}")
@@ -131,7 +156,41 @@ def validateDecimal(**kwargs):
                 error_msg = (f"Invalid {colName} values (containing only non-numeric characters). Total count: {empty_count}")
                 errors.append(error_msg)
             df_contents = df_contents.drop(f"{colName}_cleaned") 
-            
+
+        elif "date" in dType.lower():
+            #logger.warning(colName)
+            date_format = kwargs.get("date_format", "%Y-%m-%d") #default format.
+
+            def parse_date(date_string, format_string):
+                try:
+                    if isinstance(date_string, str): #Check if the data is a string.
+                        if date_string:
+                            return datetime.strptime(date_string, format_string).date()
+                        else:
+                            return None
+                    else: #if the data is not a string, return None.
+                        return None
+                except ValueError:
+                    return None
+
+            parse_date_udf = udf(parse_date, DateType())
+
+            df_date_check = df_contents.withColumn(
+                f"{colName}_date_check",
+                parse_date_udf(col(colName), lit(date_format))
+            )
+
+            #logger.info("ini harusnya :")
+            df_invalid_dates = df_date_check.filter(col(f"{colName}_date_check").isNull() & col(colName).isNull())
+            #df_invalid_dates.show()
+            invalid_date_count = df_invalid_dates.count()
+
+            if invalid_date_count > 0:
+                is_valid = True
+                error_msg = (f"Invalid {colName} values (not in '{date_format}' format). Total count: {invalid_date_count}")
+                errors.append(error_msg)
+            df_contents = df_contents.drop(f"{colName}_date_check") 
+
     if is_valid == False:        
         error_msg = "DDL Decimal/Int Data Type Structure Checks Passed."
         errors.append(error_msg)
@@ -165,11 +224,22 @@ def LoadConfig(path):
         tables.append(filePath)
     return tables
 
+# when spark UI got killed airflow gets killed as well
+def exit_handler():
+    try:
+        pass
+    except Exception as e:
+        logger.warning("Python process exit")
+    finally:
+        os._exit(1)
+
 if __name__ == "__main__":
     try:
         path = "/mnt/apps/gcs/Config/master_job.csv"
         parquetOutput = "/mnt/apps/gcs/data-movement/Parquet/"
+        pathLogs = "/mnt/apps/gcs/logs/"
         dqcOutput = []
+        dqcId = "DQ000001"
         q = Queue()
         workerCount = 2
 
@@ -181,29 +251,40 @@ if __name__ == "__main__":
         for table in tables:
             q.put(table)
 
+        """ 
+            Args : 
+                spark.cleaner.referenceTracking True -- to releasing spark mem usage from container if its got killed
+                spark.task.maxFailures", 1 -- for exit(1) then throws to airflow every python code error will return 1
+        """
         spark = SparkSession. \
                     builder. \
-                    appName(f"{args.batchname}").getOrCreate()
+                    appName(f"{args.batchname}"). \
+                    config("spark.task.maxFailures", 1). \
+                    config("spark.cleaner.referenceTracking", "true"). \
+                    getOrCreate()
 
         def loadTable(path):
             try:
                 sc = path.split("/")[5]
                 pathParquet = f"/mnt/apps/gcs/data-movement/Parquet/{sc}"
                 PathSchema = f"/mnt/apps/gcs/Schema/{sc}.csv"
+                Logs = pathLogs + f"{sc}"
                 df_dtype = construct_sql_schema(path=PathSchema, sep="|")
-                df = spark.read.csv(path, header=True, inferSchema=False, schema=df_dtype, sep="|")
+                df = spark_read_csv_from_os(spark, path, schema=df_dtype, sep="|", logPath=Logs)
                 result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
-                #print(df_final.show())
                 df_count = df_final.count()
                 if result:
                     print(dqc_msg)
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Failed"})
+                    atexit.register(exit_handler)
                 else:
                     writeToParquet(df_final, pathParquet)
                     print(dqc_msg)
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
             except Exception as e:
-                raise ValueError("Error Occurred main function")
+                #raise ValueError("Error Occurred main function")
+                logger.warning(f"Spark Session got killed or others issue encountered !!! {e}")
+                atexit.register(exit_handler)
 
         for i in range(workerCount):
             t=Thread(target=run_task, args=(loadTable, q))
@@ -219,16 +300,13 @@ if __name__ == "__main__":
                 List Of Parameters
                 -----------------------------------------------
                 SparkName Mandatory = {args.batchname}
-                JobNMame Mandatory = {args.jobname}
                 List Of DQC result = {dqcOutput}
             """
         )
         spark.stop()
         logging.shutdown()
     except SyntaxError as se:
-        error_message = str(se)
         logger.info(f"Error Syntax {se.text}")
         sys.exit(1)
     except Exception as e:
-        logger.info(f"Unxpected error {e}")
         sys.exit(1)

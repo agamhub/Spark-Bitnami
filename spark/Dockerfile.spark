@@ -11,6 +11,7 @@ RUN apt-get update && \
         libblas-dev \
         gfortran \
         python3-dev \
+        vim \
         && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -u 1000 -g root agam && \
@@ -28,6 +29,9 @@ ENV SPARK_HOME=/opt/bitnami/spark
 ENV PATH=$SPARK_HOME/bin:$PATH
 ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH
 
+#manual if needed
+#COPY spark-defaults.conf $SPARK_HOME/conf/
+
 USER agam
 
-CMD ["bash", "-c", "/opt/bitnami/scripts/spark/run.sh && /opt/bitnami/scripts/spark-worker/run.sh"]
+CMD ["bash", "-c", "/opt/bitnami/scripts/spark/run.sh & wait"]

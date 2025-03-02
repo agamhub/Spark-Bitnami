@@ -56,3 +56,8 @@
 - free -h >> check memory available on wsl2
 - create .wslconfig under c:/user [wsl2] section
 - monitor docker stats to check memory usage and I/O
+
+## Airflow
+
+- if you want to expose port you also need to change webserver url airflow.cfg
+- cat airflow.cfg | grep 8080 to 8083 based on container default is 8080 would conflict with spark default spark you can change it to 9090

@@ -5,6 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.models import Variable
 from datetime import datetime
 
+
 with DAG(
     dag_id="DataQualityOrchestration",
     schedule=None,
@@ -44,5 +45,5 @@ with DAG(
         dag=dag,
     )
 
-    [BATCH_ACT_VAL , BATCH_PEOPLE, BATCH_RTNPF] >> END 
-    BATCH_ACT_VAL >> DQC_BATCH_ACT_VAL >> END
+    [BATCH_RTNPF] >> END 
+    [BATCH_ACT_VAL, BATCH_PEOPLE]>> DQC_BATCH_ACT_VAL >> END
