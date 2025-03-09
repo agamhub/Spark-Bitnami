@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import sys
+from pyspark.sql import Row
 
 def pandas_read_csv(file_path, **options):
     """
@@ -35,6 +36,16 @@ def get_spark_app_id(app_name):
         except requests.exceptions.RequestException as e:
             pass
     return 0
+
+def dict_to_row(data_list):
+    """Converts a dictionary to a Spark Row."""
+    data_dict = data_list[0]
+    return Row(**data_dict)
+
+def create_dataframe_from_dict(spark, data_dict):
+    """Creates a Spark DataFrame from a dictionary."""
+    row = dict_to_row(data_dict)
+    return spark.createDataFrame([row])
 
 if __name__ == "__main__":
     app_name = sys.argv[1]  # Get app_name from command-line argument

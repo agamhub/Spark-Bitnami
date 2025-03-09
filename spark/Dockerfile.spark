@@ -4,16 +4,6 @@ FROM agamdl/spark-bitnami:latest
 USER root
 
 # Install system dependencies required by pandas and numpy (IMPORTANT!)
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        build-essential \
-        liblapack-dev \
-        libblas-dev \
-        gfortran \
-        python3-dev \
-        vim \
-        && rm -rf /var/lib/apt/lists/*
-
 RUN useradd -u 1000 -g root agam && \
     chown -R agam:root /opt/bitnami/spark && \
     chmod -R g+rwX /opt/bitnami/spark

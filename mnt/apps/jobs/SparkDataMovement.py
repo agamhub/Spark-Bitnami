@@ -11,7 +11,7 @@ from tabulate import tabulate
 from threading import Thread
 from queue import Queue
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, length, regexp_replace, lit, count, to_date, udf
+from pyspark.sql.functions import col, length, regexp_replace, lit, count, to_date, udf, explode
 from pyspark.sql.types import *
 from Services import *
 
@@ -73,7 +73,7 @@ def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
         df = spark.read.options(**base_options).schema(schema).csv(file_path)
 
         rejected_df = df.filter(col("rejected_records").isNotNull()).withColumn(
-            "error_details", lit("Error DDL please check contents"))
+            "error_details", lit("Error DDL please check contents")).limit(100)
         rejected_df = rejected_df.drop("rejected_records")
         rejected_df. \
                 coalesce(1).write.csv(
@@ -272,12 +272,12 @@ if __name__ == "__main__":
                 df_dtype = construct_sql_schema(path=PathSchema, sep="|")
                 df = spark_read_csv_from_os(spark, path, schema=df_dtype, sep="|", logPath=Logs)
                 result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
-                df_count = df_final.count()
                 if result:
                     print(dqc_msg)
-                    dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Failed"})
+                    dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":-1, "Message":dqc_msg, "Status":"Failed"})
                     atexit.register(exit_handler)
                 else:
+                    df_count = df_final.count()
                     writeToParquet(df_final, pathParquet)
                     print(dqc_msg)
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
@@ -303,6 +303,12 @@ if __name__ == "__main__":
                 List Of DQC result = {dqcOutput}
             """
         )
+
+        #df_dqc = spark.createDataFrame(dqcOutput, ["JobName", "Path", "dqID", "CountRecords", "Message", "Status"])
+        df_dqc = create_dataframe_from_dict(spark, dqcOutput)
+        exploded_df = df_dqc.select("JobName", "Path", "dqID", "CountRecords", explode("Message").alias("Message"), "Status")
+        exploded_df.show(truncate=False)
+
         spark.stop()
         logging.shutdown()
     except SyntaxError as se:

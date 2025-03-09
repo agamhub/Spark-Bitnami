@@ -1,4 +1,4 @@
-FROM apache/airflow:latest
+FROM agamdl/apache-airflow:2.10.5
 
 USER root
 
@@ -12,7 +12,7 @@ RUN if ! getent group docker; then groupadd -g 1002 docker; fi
 # Create the airflow user (if it doesn't exist)
 RUN if ! getent passwd airflow; then useradd -ms /bin/bash airflow; fi
 
-COPY airflow/airflow.cfg /opt/airflow/
+COPY airflow.cfg /opt/airflow/
 
 # Set JAVA_HOME environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
