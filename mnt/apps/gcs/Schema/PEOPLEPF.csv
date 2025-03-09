@@ -1,0 +1,10 @@
+ColumnName|DataType
+Index|int
+User Id|Varchar(100)
+First Name|Varchar(100)
+Last Name|Varchar(100)
+Sex|Varchar(100)
+Email|Varchar(150)
+Phone|Varchar(100)
+Date of birth|Date
+Job Title|Varchar(100)

@@ -1,3 +1,7 @@
-JobName|SourceDirectory|FileName|FileType|Flag|Delimiter
-Renova|/mnt/apps/gcs/ETL4/LAS|customers|csv|1|","
-PAT|/mnt/apps/gcs/ETL4/CONFIG|etl4pat|csv|1|"|"
+BatchName|JobName|SourceDirectory|FileName|FileType|Flag|Delimiter
+BATCH_PAT|Renova|/mnt/apps/gcs/ETL4/LAS_CHDRPF|customers|csv|1|","
+BATCH_ACT_VAL|ACMVPF|/mnt/apps/gcs/ETL4/ACMVPF|ACMVPF|csv|1|"|"
+BATCH_ACT_VAL|GENLPF|/mnt/apps/gcs/ETL4/GENLPF|GENLPF|csv|1|"|"
+BATCH_RTNPF|RTRNPF|/mnt/apps/gcs/ETL4/RTRNPF|RTRNPF|csv|1|"|"
+BATCH_PEOPLE|PEOPLEPF|/mnt/apps/gcs/ETL4/PEOPLEPF|PEOPLEPF|csv|1|"|"
+BATCH_PAT|PAT|/mnt/apps/gcs/ETL4/CONFIG|etl4pat|csv|1|"|"
