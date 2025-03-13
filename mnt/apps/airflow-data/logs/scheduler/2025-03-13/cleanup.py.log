@@ -6,3 +6,59 @@
 [2025-03-13T14:16:27.710+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:16:27.710+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-03-13T14:16:27.732+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:16:27.732+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
 [2025-03-13T14:16:27.750+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.097 seconds
+[2025-03-13T14:17:00.883+0000] {processor.py:186} INFO - Started process (PID=2476) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:00.884+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:17:00.886+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.885+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:00.908+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.908+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:17:00.915+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:00.933+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.932+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:17:00.954+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.954+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:17:00.973+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.096 seconds
+[2025-03-13T14:17:33.198+0000] {processor.py:186} INFO - Started process (PID=2503) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:33.199+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:17:33.201+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.201+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:33.223+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.223+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:17:33.231+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:17:33.249+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.249+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:17:33.270+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.269+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:17:33.286+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.093 seconds
+[2025-03-13T14:18:05.618+0000] {processor.py:186} INFO - Started process (PID=2531) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:05.619+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:18:05.621+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.620+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:05.645+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.645+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:18:05.654+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:05.673+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.673+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:18:05.697+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.697+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:18:05.719+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.107 seconds
+[2025-03-13T14:18:38.974+0000] {processor.py:186} INFO - Started process (PID=2556) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:38.975+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:18:38.977+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:38.976+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:39.001+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:39.001+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:18:39.010+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:18:39.029+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:39.028+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:18:39.054+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:39.053+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:18:39.076+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.108 seconds
+[2025-03-13T14:19:11.559+0000] {processor.py:186} INFO - Started process (PID=2581) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:11.562+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:19:11.566+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.565+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:11.610+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.610+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:19:11.626+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:11.663+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.662+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:19:11.695+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.695+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:19:11.740+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.192 seconds
+[2025-03-13T14:19:43.963+0000] {processor.py:186} INFO - Started process (PID=2606) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:43.964+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:19:43.966+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:43.966+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:43.989+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:43.989+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:19:43.996+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:19:44.016+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:44.016+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:19:44.039+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:44.039+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:19:44.061+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.104 seconds
+[2025-03-13T14:20:17.287+0000] {processor.py:186} INFO - Started process (PID=2631) to work on /opt/airflow/dags/cleanup.py
+[2025-03-13T14:20:17.287+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cleanup.py for tasks to queue
+[2025-03-13T14:20:17.289+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.289+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:20:17.311+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.311+0000] {cleanup.py:49} INFO - ENABLE_DELETE_CHILD_LOG  False
+[2025-03-13T14:20:17.318+0000] {processor.py:925} INFO - DAG(s) 'cleanup' retrieved from /opt/airflow/dags/cleanup.py
+[2025-03-13T14:20:17.335+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.335+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:20:17.356+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.356+0000] {dag.py:4180} INFO - Setting next_dagrun for cleanup to 2025-03-16 00:00:00+00:00, run_after=2025-03-23 00:00:00+00:00
+[2025-03-13T14:20:17.378+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cleanup.py took 0.096 seconds

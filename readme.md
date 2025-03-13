@@ -61,3 +61,5 @@
 
 - if you want to expose port you also need to change webserver url airflow.cfg
 - cat airflow.cfg | grep 8080 to 8083 based on container default is 8080 would conflict with spark default spark you can change it to 9090
+
+    ![alt text](image.png)

@@ -5,3 +5,52 @@
 [2025-03-13T14:16:27.540+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:16:27.540+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-03-13T14:16:27.561+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:16:27.561+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
 [2025-03-13T14:16:27.591+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.119 seconds
+[2025-03-13T14:17:00.752+0000] {processor.py:186} INFO - Started process (PID=2463) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:00.753+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:17:00.755+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.754+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:00.769+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:00.794+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.794+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:17:00.808+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:00.808+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:17:00.825+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.079 seconds
+[2025-03-13T14:17:32.960+0000] {processor.py:186} INFO - Started process (PID=2488) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:32.960+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:17:32.962+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:32.962+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:32.977+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:17:33.002+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.001+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:17:33.017+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:17:33.017+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:17:33.036+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.081 seconds
+[2025-03-13T14:18:05.377+0000] {processor.py:186} INFO - Started process (PID=2516) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:05.378+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:18:05.380+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.379+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:05.394+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:05.420+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.420+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:18:05.434+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:05.434+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:18:05.454+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.082 seconds
+[2025-03-13T14:18:38.706+0000] {processor.py:186} INFO - Started process (PID=2541) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:38.707+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:18:38.709+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:38.709+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:38.725+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:18:38.751+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:38.751+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:18:38.765+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:18:38.765+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:18:38.787+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.087 seconds
+[2025-03-13T14:19:11.111+0000] {processor.py:186} INFO - Started process (PID=2566) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:11.113+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:19:11.119+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.117+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:11.151+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:11.209+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.208+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:19:11.231+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:11.231+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:19:11.261+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.161 seconds
+[2025-03-13T14:19:43.723+0000] {processor.py:186} INFO - Started process (PID=2591) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:43.724+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:19:43.725+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:43.725+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:43.741+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:19:43.768+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:43.768+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:19:43.783+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:19:43.783+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:19:43.802+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.084 seconds
+[2025-03-13T14:20:17.066+0000] {processor.py:186} INFO - Started process (PID=2616) to work on /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:20:17.067+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/dqc_airflow.py for tasks to queue
+[2025-03-13T14:20:17.069+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.068+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:20:17.083+0000] {processor.py:925} INFO - DAG(s) 'DataQualityOrchestration' retrieved from /opt/airflow/dags/dqc_airflow.py
+[2025-03-13T14:20:17.105+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.105+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-13T14:20:17.118+0000] {logging_mixin.py:190} INFO - [2025-03-13T14:20:17.118+0000] {dag.py:4180} INFO - Setting next_dagrun for DataQualityOrchestration to None, run_after=None
+[2025-03-13T14:20:17.136+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/dqc_airflow.py took 0.075 seconds
