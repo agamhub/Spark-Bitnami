@@ -28,6 +28,8 @@
 - docker exec -it -d >> -d means running from background of docker but cannot write log into local >> applicable only in docker dir
 - docker exec -d spark-master /bin/bash -c '/mnt/apps/run_spark.sh --sparkname shtest --jobname shtest' >>> final by using arguments
 
+    ![alt text](docker.png)
+
 ## Container Access
 
 - ctrl+p shortcut for command pallete
@@ -62,4 +64,4 @@
 - if you want to expose port you also need to change webserver url airflow.cfg
 - cat airflow.cfg | grep 8080 to 8083 based on container default is 8080 would conflict with spark default spark you can change it to 9090
 
-    ![alt text](image.png)
+    ![alt text](airflow.png)
