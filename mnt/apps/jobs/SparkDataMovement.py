@@ -192,7 +192,7 @@ def validateDecimal(**kwargs):
             df_contents = df_contents.drop(f"{colName}_date_check") 
 
     if is_valid == False:        
-        error_msg = "DDL Decimal/Int Data Type Structure Checks Passed."
+        error_msg = "DDL Decimal/Int/Date Data Type Structure Checks Passed."
         errors.append(error_msg)
 
     return is_valid, errors, df_contents, dqcId

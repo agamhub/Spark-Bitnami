@@ -131,9 +131,13 @@ if __name__ == "__main__":
 
     getDf, df = getTables(path=path, LoadPath=LoadPath)
     
-    sparkDqc = SparkSession. \
-            builder. \
-            appName(f"{args.batchname}_DQC").getOrCreate()
+    sparkDqc = (
+            SparkSession
+            .builder
+            .appName(f"{args.batchname}_DQC")
+            .spark.conf.set("spark.sql.parquet.enableVectorizedReader", "true")
+            .getOrCreate()
+        )
     
     listJob = []
     for row in getDf.itertuples():
