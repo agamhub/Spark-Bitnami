@@ -107,7 +107,8 @@ def construct_sql_schema(**kwargs):
         "int": IntegerType(),
         "bigint": LongType(),
         "date": DateType(),
-        "decimal": DecimalType
+        "decimal": DecimalType,
+        "numeric": DecimalType
     }
 
     df = pandas_read_csv(kwargs["path"],sep=kwargs["sep"])
@@ -142,7 +143,7 @@ def validateDecimal(**kwargs):
     for field in kwargs["dtypes"]:
         colName = field.name
         dType = str(field.dataType)
-        if "decimal" in dType.lower() or "int" in dType.lower():
+        if "decimal" in dType.lower() or "int" in dType.lower() or "numeric" in dType.lower():
             #print(colName)
             df_cleaned = df_contents.withColumn(
                 f"{colName}_cleaned",
@@ -200,13 +201,21 @@ def validateDecimal(**kwargs):
 def writeToParquet(df, path):
     try:
         #print("Write to parquet started : ",path)
-        df = df.coalesce(50)
+        df = df.coalesce(30)
         df.write.parquet(path, mode="overwrite", compression="snappy")
         return True
     except Exception as e:  # Catch other potential exceptions (e.g., parsing errors)
         print(f"An error occurred while writing the parquet: {e}")
         raise ValueError("Error Here Write Parquet")
-        return False
+    
+def writeToGz(df, dataMovement, **kwargs):
+    base_options = {  # Keep this separate
+        "header": "true",
+        "delimiter": "|",
+        "quote": '"'
+    }
+    base_options.update(kwargs)
+    df.coalesce(30).write.format("csv").mode("overwrite").options(**base_options).save(dataMovement)
 
 def run_task(function, q):
     while not q.empty():
@@ -267,6 +276,7 @@ if __name__ == "__main__":
             try:
                 sc = path.split("/")[5]
                 pathParquet = f"/mnt/apps/gcs/data-movement/Parquet/{sc}"
+                pathGz = f"/mnt/apps/gcs/data-movement/{sc}"
                 PathSchema = f"/mnt/apps/gcs/Schema/{sc}.csv"
                 Logs = pathLogs + f"{sc}"
                 df_dtype = construct_sql_schema(path=PathSchema, sep="|")
@@ -279,6 +289,7 @@ if __name__ == "__main__":
                 else:
                     df_count = df_final.count()
                     writeToParquet(df_final, pathParquet)
+                    #writeToGz(df_final, pathGz, compression="gzip")
                     print(dqc_msg)
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":df_count, "Message":dqc_msg, "Status":"Successful"})
             except Exception as e:

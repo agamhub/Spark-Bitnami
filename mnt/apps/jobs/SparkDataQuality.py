@@ -40,13 +40,26 @@ def loadTable(**kwargs):
     if not os.path.exists(pathCheck):
         return None
     try:
-        sparkDqc.sql(f"""
-        CREATE EXTERNAL TABLE IF NOT EXISTS {kwargs["tableName"]}
-        USING PARQUET LOCATION '{kwargs["path"]}'
-        """)
-        return True
+        if kwargs["loadType"] == "Parquet":
+            sparkDqc.sql(f"""
+            CREATE EXTERNAL TABLE IF NOT EXISTS {kwargs["tableName"]}
+            USING PARQUET LOCATION '{kwargs["path"]}'
+            """)
+            return True
+        else:
+            sparkDqc.sql(f"""
+            CREATE EXTERNAL TABLE IF NOT EXISTS {kwargs["tableName"]}
+            USING CSV
+            OPTIONS (
+                'path' '{kwargs["path"]}',
+                'delimiter' '|',
+                'compression' 'gzip',
+                'header' 'true'
+            )
+            """)
+            return True
     except Exception as e:
-        return None
+        return str(e)
     
 def ListTable():
     listCreatedTable = []
@@ -128,6 +141,7 @@ if __name__ == "__main__":
     path = "/mnt/apps/gcs/Config/DataQuality_Config.csv"
     LoadPath = "/mnt/apps/gcs/Config/master_job.csv"
     parquetOutput = "/mnt/apps/gcs/data-movement/Parquet/"
+    GzOutput = "/mnt/apps/gcs/data-movement/"
 
     getDf, df = getTables(path=path, LoadPath=LoadPath)
     
@@ -135,15 +149,17 @@ if __name__ == "__main__":
             SparkSession
             .builder
             .appName(f"{args.batchname}_DQC")
-            .spark.conf.set("spark.sql.parquet.enableVectorizedReader", "true")
+            .config("spark.sql.parquet.enableVectorizedReader", "true")
             .getOrCreate()
         )
     
     listJob = []
     for row in getDf.itertuples():
         listJob.append(row.JobName.lower())
-        loadTable(path=parquetOutput + '/' + row.JobName + '/part*', tableName=row.JobName)
-    
+        if row.JobName == "ACMVPF":
+            loadTable(path=GzOutput + '/' + row.JobName + '/part*', tableName=row.JobName, loadType="Gzip")
+        else:
+            loadTable(path=parquetOutput + '/' + row.JobName + '/part*', tableName=row.JobName, loadType="Parquet")
     if all(item in ListTable() for item in listJob):
         result_df = executeScriptsParallel(sparkDqc, df)
         logger.info(result_df.show(truncate=False))
