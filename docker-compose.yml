@@ -19,8 +19,11 @@ x-spark-common: &spark-common
       - ./mnt/apps:/mnt/apps
       - /mnt/e/database/data-movement:/mnt/apps/gcs/
       - /mnt/e/database:/mnt/apps/gcs
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - spark-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
       
 x-airflow-common: &airflow-common
   build:
@@ -34,18 +37,20 @@ x-airflow-common: &airflow-common
     - AIRFLOW__CORE__LOGGING_LEVEL=INFO
     - AIRFLOW__WEBSERVER_BASE_URL=http://localhost:8083
     - AIRFLOW__WEBSERVER__SHOW_TRIGGER_FORM_IF_NO_PARAMS=True #Trigger with parameter
-    - DOCKER_HOST=tcp://host.docker.internal:2375
     - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
   volumes:
     - ./mnt/apps/dags:/opt/airflow/dags
     - ./mnt/apps/airflow-data/logs:/opt/airflow/logs
     - ./mnt/apps/airflow-data/plugins:/opt/airflow/plugins
     - ./mnt/apps/jobs:/opt/airflow/jobs
+    - /var/run/docker.sock:/var/run/docker.sock
   depends_on:
     - postgres
   networks:
     - db-network
     - spark-network
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
 
 services:
   spark-master:
@@ -73,8 +78,11 @@ services:
       - /mnt/e/database/data-movement:/mnt/apps/gcs/
       - /mnt/e/database:/mnt/apps/gcs
       - ./mnt/apps/logs:/opt/bitnami/spark/logs
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - spark-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   jupyterlab:
     build:

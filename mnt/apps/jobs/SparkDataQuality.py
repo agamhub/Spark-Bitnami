@@ -59,7 +59,7 @@ def loadTable(**kwargs):
             """)
             return True
     except Exception as e:
-        return str(e)
+        return None
     
 def ListTable():
     listCreatedTable = []
@@ -108,10 +108,11 @@ def executeScripts(sparkDqc, **kwargs):
             duration = f"{duration_seconds / 3600:.2f} hours"
 
         count = result_df.collect()[0]
-        kwargs["results"].append((kwargs["BatchName"], kwargs["DqcId"], start_time, end_time, duration, kwargs["Scripts"], kwargs["Run"], str(count["CNT"])))
+        status = "Failed" if count["CNT"] != 0 else "Successful"
+        kwargs["results"].append((kwargs["BatchName"], kwargs["DqcId"], start_time, end_time, duration, kwargs["Scripts"], kwargs["Run"], str(count["CNT"]), status))
     except Exception as e:
         end_time = datetime.now()
-        kwargs["results"].append((kwargs["BatchName"], kwargs["DqcId"], start_time, end_time, 0, kwargs["Scripts"], kwargs["Run"], f"Error : {str(e)}"))
+        kwargs["results"].append((kwargs["BatchName"], kwargs["DqcId"], start_time, end_time, 0, kwargs["Scripts"], kwargs["Run"], f"Error : {str(e)}", "Failed"))
 
 def executeScriptsParallel(sparkDqc, df):
     results = []
@@ -134,7 +135,7 @@ def executeScriptsParallel(sparkDqc, df):
     for thread in threads:
         thread.join()
 
-    result_df = sparkDqc.createDataFrame(results, ["BatchName", "DqcId", "StartTime", "EndTime", "Duration", "Scripts", "Run", "Result"])
+    result_df = sparkDqc.createDataFrame(results, ["BatchName", "DqcId", "StartTime", "EndTime", "Duration", "Scripts", "Run", "Result", "Status"])
     return result_df
 
 if __name__ == "__main__":

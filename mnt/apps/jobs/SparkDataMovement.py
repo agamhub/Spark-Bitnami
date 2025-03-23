@@ -108,7 +108,8 @@ def construct_sql_schema(**kwargs):
         "bigint": LongType(),
         "date": DateType(),
         "decimal": DecimalType,
-        "numeric": DecimalType
+        "numeric": DecimalType,
+        "money": StringType()
     }
 
     df = pandas_read_csv(kwargs["path"],sep=kwargs["sep"])
@@ -143,7 +144,10 @@ def validateDecimal(**kwargs):
     for field in kwargs["dtypes"]:
         colName = field.name
         dType = str(field.dataType)
-        if "decimal" in dType.lower() or "int" in dType.lower() or "numeric" in dType.lower():
+        if "decimal" in dType.lower() or "int" in dType.lower() or "numeric" in dType.lower() or "money" in dType.lower():
+            if "money" in dType.lower():
+                df_contents = df_contents.withColumn(f"{colName}",regexp_replace(",","."))
+
             #print(colName)
             df_cleaned = df_contents.withColumn(
                 f"{colName}_cleaned",
@@ -315,7 +319,6 @@ if __name__ == "__main__":
             """
         )
 
-        #df_dqc = spark.createDataFrame(dqcOutput, ["JobName", "Path", "dqID", "CountRecords", "Message", "Status"])
         df_dqc = create_dataframe_from_dict(spark, dqcOutput)
         exploded_df = df_dqc.select("JobName", "Path", "dqID", "CountRecords", explode("Message").alias("Message"), "Status")
         exploded_df.show(truncate=False)
