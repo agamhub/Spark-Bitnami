@@ -112,7 +112,7 @@ services:
       replicas: 3
 
   postgres:
-    image: postgres:13 # Or your preferred Postgres version
+    image: postgres:13-bullseye # Or your preferred Postgres version
     container_name: postgres
     environment:
       - POSTGRES_USER=airflow

@@ -1,0 +1,28 @@
+[2025-04-09T11:23:07.451+0000] {processor.py:186} INFO - Started process (PID=664) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:07.451+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:23:07.453+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:07.452+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:07.467+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:07.485+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:07.485+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:23:07.505+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:07.505+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:20:00+00:00, run_after=2025-04-09 11:25:00+00:00
+[2025-04-09T11:23:07.520+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.074 seconds
+[2025-04-09T11:23:37.873+0000] {processor.py:186} INFO - Started process (PID=689) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:37.873+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:23:37.875+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:37.875+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:37.891+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:23:37.910+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:37.910+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:23:37.931+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:23:37.931+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:20:00+00:00, run_after=2025-04-09 11:25:00+00:00
+[2025-04-09T11:23:37.948+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.080 seconds
+[2025-04-09T11:24:08.314+0000] {processor.py:186} INFO - Started process (PID=714) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:08.316+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:24:08.318+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:08.318+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:08.335+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:08.359+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:08.358+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:24:08.383+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:08.383+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:20:00+00:00, run_after=2025-04-09 11:25:00+00:00
+[2025-04-09T11:24:08.408+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.102 seconds
+[2025-04-09T11:24:38.757+0000] {processor.py:186} INFO - Started process (PID=739) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:38.758+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:24:38.760+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:38.760+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:38.780+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:24:38.805+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:38.805+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:24:38.834+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:38.833+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:20:00+00:00, run_after=2025-04-09 11:25:00+00:00
+[2025-04-09T11:24:38.863+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.110 seconds

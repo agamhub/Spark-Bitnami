@@ -1,8 +1,8 @@
-2025-03-13 14:35:51,976 - INFO - +-----------+---------+-----------------+----------+----------+------+-----------+
+2025-04-09 10:40:44,276 - INFO - +-----------+---------+-----------------+----------+----------+------+-----------+
 | BatchName | JobName | SourceDirectory | FileName | FileType | Flag | Delimiter |
 +-----------+---------+-----------------+----------+----------+------+-----------+
 +-----------+---------+-----------------+----------+----------+------+-----------+
-2025-03-13 14:35:51,979 - WARNING - Please enable flag to 1 if you want to re-order Data Movement
-25/03/13 14:35:52 INFO ShutdownHookManager: Shutdown hook called
-25/03/13 14:35:52 INFO ShutdownHookManager: Deleting directory /tmp/spark-77cbef7b-d145-455b-9da4-a4d6c4f6bc0c
-Thu Mar 13 14:35:52 UTC 2025 - BASH - Spark job 'BATCH_PEOPLE' completed
+2025-04-09 10:40:44,277 - WARNING - Please enable flag to 1 if you want to re-order Data Movement
+25/04/09 10:40:44 INFO ShutdownHookManager: Shutdown hook called
+25/04/09 10:40:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-544f2271-4bfe-4b45-8fc9-97adff0e1d8b
+Wed Apr  9 10:40:44 UTC 2025 - BASH - Spark job 'BATCH_PEOPLE' completed

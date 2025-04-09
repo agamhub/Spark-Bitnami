@@ -145,9 +145,7 @@ def validateDecimal(**kwargs):
         colName = field.name
         dType = str(field.dataType)
         if "decimal" in dType.lower() or "int" in dType.lower() or "numeric" in dType.lower() or "money" in dType.lower():
-            if "money" in dType.lower():
-                df_contents = df_contents.withColumn(f"{colName}",regexp_replace(",","."))
-
+        
             #print(colName)
             df_cleaned = df_contents.withColumn(
                 f"{colName}_cleaned",

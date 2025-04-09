@@ -8,11 +8,12 @@ RUN useradd -u 1000 -g root agam && \
     chown -R agam:root /opt/bitnami/spark && \
     chmod -R g+rwX /opt/bitnami/spark
 
-COPY requirements.txt /tmp/requirements.txt
+#COPY requirements.txt /tmp/requirements.txt
+COPY libraryPy/ /tmp/libraryPy/
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
-    pip install --upgrade pip
+#RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
+RUN pip install --no-index --find-links=/tmp/libraryPy/ pandas tabulate jupyterlab
 
 # Set environment variables for Spark
 ENV SPARK_HOME=/opt/bitnami/spark

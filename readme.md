@@ -65,3 +65,10 @@
 - cat airflow.cfg | grep 8080 to 8083 based on container default is 8080 would conflict with spark default spark you can change it to 9090
 
     ![alt text](airflow.png)
+
+## Python Library Offline Installation
+
+- Download respective library from PyPi https://pypi.org/project/psycopg2-binary/#files
+- specify library version we want e.g : pandas==2.0.9 and which python version we have inside spark images or other
+- pip download pandas tabulate jupyterlab -d spark/libraryPy
+- pyscopg2 for airflow slim python 3.8 > psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl

@@ -1,7 +1,7 @@
-tabulate
-pandas
-numpy
-google-cloud-storage
+#tabulate
+#pandas
+#numpy
+#google-cloud-storage
 jupyterlab
-pyspark
-ipykernel
+#pyspark
+#ipykernel
