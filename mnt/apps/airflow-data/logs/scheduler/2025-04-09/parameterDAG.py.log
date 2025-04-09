@@ -26,3 +26,31 @@
 [2025-04-09T11:24:37.704+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:37.703+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-04-09T11:24:37.717+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:37.717+0000] {dag.py:4180} INFO - Setting next_dagrun for parameterDAG to None, run_after=None
 [2025-04-09T11:24:37.732+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/parameterDAG.py took 0.072 seconds
+[2025-04-09T11:25:08.096+0000] {processor.py:186} INFO - Started process (PID=758) to work on /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:08.097+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/parameterDAG.py for tasks to queue
+[2025-04-09T11:25:08.099+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:08.099+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:08.113+0000] {processor.py:925} INFO - DAG(s) 'parameterDAG' retrieved from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:08.134+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:08.134+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:25:08.145+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:08.145+0000] {dag.py:4180} INFO - Setting next_dagrun for parameterDAG to None, run_after=None
+[2025-04-09T11:25:08.162+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/parameterDAG.py took 0.071 seconds
+[2025-04-09T11:25:38.524+0000] {processor.py:186} INFO - Started process (PID=783) to work on /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:38.524+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/parameterDAG.py for tasks to queue
+[2025-04-09T11:25:38.526+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:38.526+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:38.539+0000] {processor.py:925} INFO - DAG(s) 'parameterDAG' retrieved from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:25:38.557+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:38.557+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:25:38.568+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:38.568+0000] {dag.py:4180} INFO - Setting next_dagrun for parameterDAG to None, run_after=None
+[2025-04-09T11:25:38.583+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/parameterDAG.py took 0.063 seconds
+[2025-04-09T11:26:08.861+0000] {processor.py:186} INFO - Started process (PID=808) to work on /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:08.861+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/parameterDAG.py for tasks to queue
+[2025-04-09T11:26:08.863+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:08.862+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:08.876+0000] {processor.py:925} INFO - DAG(s) 'parameterDAG' retrieved from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:08.895+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:08.894+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:26:08.907+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:08.907+0000] {dag.py:4180} INFO - Setting next_dagrun for parameterDAG to None, run_after=None
+[2025-04-09T11:26:08.925+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/parameterDAG.py took 0.069 seconds
+[2025-04-09T11:26:39.308+0000] {processor.py:186} INFO - Started process (PID=833) to work on /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:39.309+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/parameterDAG.py for tasks to queue
+[2025-04-09T11:26:39.311+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:39.310+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:39.326+0000] {processor.py:925} INFO - DAG(s) 'parameterDAG' retrieved from /opt/airflow/dags/parameterDAG.py
+[2025-04-09T11:26:39.348+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:39.348+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:26:39.362+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:39.362+0000] {dag.py:4180} INFO - Setting next_dagrun for parameterDAG to None, run_after=None
+[2025-04-09T11:26:39.383+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/parameterDAG.py took 0.080 seconds

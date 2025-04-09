@@ -26,3 +26,31 @@
 [2025-04-09T11:24:38.805+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:38.805+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-04-09T11:24:38.834+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:24:38.833+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:20:00+00:00, run_after=2025-04-09 11:25:00+00:00
 [2025-04-09T11:24:38.863+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.110 seconds
+[2025-04-09T11:25:09.127+0000] {processor.py:186} INFO - Started process (PID=768) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:09.128+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:25:09.129+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:09.129+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:09.150+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:09.172+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:09.171+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:25:09.194+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:09.194+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:25:00+00:00, run_after=2025-04-09 11:30:00+00:00
+[2025-04-09T11:25:09.216+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.095 seconds
+[2025-04-09T11:25:39.563+0000] {processor.py:186} INFO - Started process (PID=793) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:39.564+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:25:39.566+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:39.566+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:39.581+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:25:39.600+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:39.600+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:25:39.620+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:25:39.620+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:25:00+00:00, run_after=2025-04-09 11:30:00+00:00
+[2025-04-09T11:25:39.635+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-04-09T11:26:09.963+0000] {processor.py:186} INFO - Started process (PID=818) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:09.964+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:26:09.966+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:09.966+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:09.983+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:10.003+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:10.003+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:26:10.028+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:10.027+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:25:00+00:00, run_after=2025-04-09 11:30:00+00:00
+[2025-04-09T11:26:10.045+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.086 seconds
+[2025-04-09T11:26:40.414+0000] {processor.py:186} INFO - Started process (PID=843) to work on /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:40.414+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-04-09T11:26:40.416+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:40.416+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:40.433+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-04-09T11:26:40.454+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:40.454+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-09T11:26:40.478+0000] {logging_mixin.py:190} INFO - [2025-04-09T11:26:40.478+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-04-09 11:25:00+00:00, run_after=2025-04-09 11:30:00+00:00
+[2025-04-09T11:26:40.497+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.090 seconds

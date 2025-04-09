@@ -72,3 +72,6 @@
 - specify library version we want e.g : pandas==2.0.9 and which python version we have inside spark images or other
 - pip download pandas tabulate jupyterlab -d spark/libraryPy
 - pyscopg2 for airflow slim python 3.8 > psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+- pip download pandas --python-version 38 --only-binary :all: -d ./pandas_wheels
+- pip download tabulate --python-version 38 --only-binary :all: -d ./tabulate_wheels
+- pip download jupyterlab --python-version 38 --only-binary :all: -d ./jupyterlab_wheels
