@@ -2,9 +2,9 @@ FROM apache/airflow:slim-2.10.5-python3.8
 
 USER root
 
-#RUN apt-get update && \
-#    apt-get install -y --no-install-recommends gcc python3-dev openjdk-17-jdk && \
-#    apt-get clean
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openssh-client && \
+    apt-get clean
 
 # Create the docker group (if it doesn't exist)
 RUN if ! getent group docker; then groupadd -g 1002 docker; fi   
@@ -24,6 +24,8 @@ RUN usermod -aG docker airflow
 
 USER airflow
 RUN pip install --no-index --find-links=/tmp/ /tmp/psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+USER root
 
 #RUN pip install --upgrade pip
 

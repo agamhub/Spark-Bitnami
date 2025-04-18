@@ -1,0 +1,6 @@
+{
+    "remote_host": "172.27.23.224",
+    "remote_user": "agam",
+    "ssh_key_path": "/home/airflow/.ssh/id_rsa",
+    "remote_script_path": "/mnt/e/Repo/Spark-Bitnami/airflow-data/sync.sh"
+  }

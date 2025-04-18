@@ -44,6 +44,7 @@ x-airflow-common: &airflow-common
     - ./mnt/apps/airflow-data/plugins:/opt/airflow/plugins
     - ./mnt/apps/jobs:/opt/airflow/jobs
     - /var/run/docker.sock:/var/run/docker.sock
+    - ./mnt/apps/ssh_keys:/home/airflow/.ssh
   depends_on:
     - postgres
   networks:
@@ -51,7 +52,7 @@ x-airflow-common: &airflow-common
     - spark-network
   extra_hosts:
     - "host.docker.internal:host-gateway"
-
+    
 services:
   spark-master:
     #image: bitnami/spark:latest # build an image that referring to dockerfile instead
@@ -87,7 +88,7 @@ services:
   jupyterlab:
     build:
       context: ./spark
-      dockerfile: Dockerfile.spark
+      dockerfile: Dockerfile.jupyterlab
     command: python -m jupyterlab --ip "0.0.0.0" --no-browser --NotebookApp.token=''
     container_name: jupyterlab
     environment:

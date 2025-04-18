@@ -1,0 +1,28 @@
+# original bitnami/spark:latest
+FROM agamdl/spark-bitnami:latest
+
+USER root
+
+# Install system dependencies required by pandas and numpy (IMPORTANT!)
+RUN useradd -u 1000 -g root agam && \
+    chown -R agam:root /opt/bitnami/spark && \
+    chmod -R g+rwX /opt/bitnami/spark
+
+#COPY requirements.txt /tmp/requirements.txt
+COPY libraryPy/ /tmp/libraryPy/
+
+# Install Python dependencies
+#RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
+RUN pip install --no-index --find-links=/tmp/libraryPy/ pandas tabulate jupyterlab
+
+# Set environment variables for Spark
+ENV SPARK_HOME=/opt/bitnami/spark
+ENV PATH=$SPARK_HOME/bin:$PATH
+ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH
+
+#manual if needed
+#COPY spark-defaults.conf $SPARK_HOME/conf/
+
+USER agam
+
+CMD ["bash", "-c", "/opt/bitnami/scripts/spark/run.sh & wait"]

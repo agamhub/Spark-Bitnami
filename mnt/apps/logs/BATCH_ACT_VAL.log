@@ -1,190 +1,352 @@
-2025-04-09 10:40:44,276 - INFO - +---+---------------+---------+---------------------------+----------+----------+------+-----------+
+2025-04-14 15:35:59,649 - INFO - +---+---------------+---------+---------------------------+----------+----------+------+-----------+
 |   |   BatchName   | JobName |      SourceDirectory      | FileName | FileType | Flag | Delimiter |
 +---+---------------+---------+---------------------------+----------+----------+------+-----------+
 | 1 | BATCH_ACT_VAL | ACMVPF  | /mnt/apps/gcs/ETL4/ACMVPF |  ACMVPF  |   csv    |  1   |     |     |
 +---+---------------+---------+---------------------------+----------+----------+------+-----------+
-25/04/09 10:40:44 INFO SparkContext: Running Spark version 3.5.4
-25/04/09 10:40:44 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
-25/04/09 10:40:44 INFO SparkContext: Java version 17.0.14
-25/04/09 10:40:44 INFO ResourceUtils: ==============================================================
-25/04/09 10:40:44 INFO ResourceUtils: No custom resources configured for spark.driver.
-25/04/09 10:40:44 INFO ResourceUtils: ==============================================================
-25/04/09 10:40:44 INFO SparkContext: Submitted application: BATCH_ACT_VAL
-25/04/09 10:40:44 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
-25/04/09 10:40:44 INFO ResourceProfile: Limiting resource is cpu
-25/04/09 10:40:44 INFO ResourceProfileManager: Added ResourceProfile id: 0
-25/04/09 10:40:44 INFO SecurityManager: Changing view acls to: spark,root
-25/04/09 10:40:44 INFO SecurityManager: Changing modify acls to: spark,root
-25/04/09 10:40:44 INFO SecurityManager: Changing view acls groups to: 
-25/04/09 10:40:44 INFO SecurityManager: Changing modify acls groups to: 
-25/04/09 10:40:44 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark, root; groups with view permissions: EMPTY; users with modify permissions: spark, root; groups with modify permissions: EMPTY
-25/04/09 10:40:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-25/04/09 10:40:44 INFO Utils: Successfully started service 'sparkDriver' on port 38861.
-25/04/09 10:40:44 INFO SparkEnv: Registering MapOutputTracker
-25/04/09 10:40:44 INFO SparkEnv: Registering BlockManagerMaster
-25/04/09 10:40:44 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-25/04/09 10:40:44 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-25/04/09 10:40:44 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-25/04/09 10:40:44 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6a2455a3-fdf6-4de4-b558-24e1cb72674e
-25/04/09 10:40:44 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
-25/04/09 10:40:44 INFO SparkEnv: Registering OutputCommitCoordinator
-25/04/09 10:40:45 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
-25/04/09 10:40:45 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
-25/04/09 10:40:45 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.2:7077 after 19 ms (0 ms spent in bootstraps)
-25/04/09 10:40:45 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250409104045-0000
-25/04/09 10:40:45 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42259.
-25/04/09 10:40:45 INFO NettyBlockTransferService: Server created on 2bd8c065d526:42259
-25/04/09 10:40:45 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-25/04/09 10:40:45 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 2bd8c065d526, 42259, None)
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250409104045-0000/0 on worker-20250409103647-172.20.0.8-41381 (172.20.0.8:41381) with 2 core(s)
-25/04/09 10:40:45 INFO StandaloneSchedulerBackend: Granted executor ID app-20250409104045-0000/0 on hostPort 172.20.0.8:41381 with 2 core(s), 1024.0 MiB RAM
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250409104045-0000/1 on worker-20250409103647-172.20.0.6-39527 (172.20.0.6:39527) with 1 core(s)
-25/04/09 10:40:45 INFO StandaloneSchedulerBackend: Granted executor ID app-20250409104045-0000/1 on hostPort 172.20.0.6:39527 with 1 core(s), 1024.0 MiB RAM
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250409104045-0000/2 on worker-20250409103647-172.20.0.4-34093 (172.20.0.4:34093) with 1 core(s)
-25/04/09 10:40:45 INFO BlockManagerMasterEndpoint: Registering block manager 2bd8c065d526:42259 with 434.4 MiB RAM, BlockManagerId(driver, 2bd8c065d526, 42259, None)
-25/04/09 10:40:45 INFO StandaloneSchedulerBackend: Granted executor ID app-20250409104045-0000/2 on hostPort 172.20.0.4:34093 with 1 core(s), 1024.0 MiB RAM
-25/04/09 10:40:45 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 2bd8c065d526, 42259, None)
-25/04/09 10:40:45 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 2bd8c065d526, 42259, None)
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250409104045-0000/0 is now RUNNING
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250409104045-0000/1 is now RUNNING
-25/04/09 10:40:45 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250409104045-0000/2 is now RUNNING
-25/04/09 10:40:45 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/04/14 15:35:59 INFO SparkContext: Running Spark version 3.5.4
+25/04/14 15:35:59 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/04/14 15:35:59 INFO SparkContext: Java version 17.0.14
+25/04/14 15:35:59 INFO ResourceUtils: ==============================================================
+25/04/14 15:35:59 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/04/14 15:35:59 INFO ResourceUtils: ==============================================================
+25/04/14 15:35:59 INFO SparkContext: Submitted application: BATCH_ACT_VAL
+25/04/14 15:35:59 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/04/14 15:35:59 INFO ResourceProfile: Limiting resource is cpu
+25/04/14 15:35:59 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/04/14 15:35:59 INFO SecurityManager: Changing view acls to: root
+25/04/14 15:35:59 INFO SecurityManager: Changing modify acls to: root
+25/04/14 15:35:59 INFO SecurityManager: Changing view acls groups to: 
+25/04/14 15:35:59 INFO SecurityManager: Changing modify acls groups to: 
+25/04/14 15:35:59 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/04/14 15:35:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/04/14 15:36:00 INFO Utils: Successfully started service 'sparkDriver' on port 46031.
+25/04/14 15:36:00 INFO SparkEnv: Registering MapOutputTracker
+25/04/14 15:36:00 INFO SparkEnv: Registering BlockManagerMaster
+25/04/14 15:36:00 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/04/14 15:36:00 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/04/14 15:36:00 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/04/14 15:36:00 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-dd7fb9dc-d9df-4871-ad83-162bccc04b0f
+25/04/14 15:36:00 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/04/14 15:36:00 INFO SparkEnv: Registering OutputCommitCoordinator
+25/04/14 15:36:00 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/04/14 15:36:00 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/04/14 15:36:00 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+25/04/14 15:36:00 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.3:7077 after 21 ms (0 ms spent in bootstraps)
+25/04/14 15:36:00 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250414153600-0000
+25/04/14 15:36:00 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42203.
+25/04/14 15:36:00 INFO NettyBlockTransferService: Server created on dde045451645:42203
+25/04/14 15:36:00 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/04/14 15:36:00 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dde045451645, 42203, None)
+25/04/14 15:36:00 INFO BlockManagerMasterEndpoint: Registering block manager dde045451645:42203 with 434.4 MiB RAM, BlockManagerId(driver, dde045451645, 42203, None)
+25/04/14 15:36:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250414153600-0000/0 on worker-20250414153512-172.20.0.7-33221 (172.20.0.7:33221) with 2 core(s)
+25/04/14 15:36:00 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dde045451645, 42203, None)
+25/04/14 15:36:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20250414153600-0000/0 on hostPort 172.20.0.7:33221 with 2 core(s), 1024.0 MiB RAM
+25/04/14 15:36:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250414153600-0000/1 on worker-20250414153513-172.20.0.8-42375 (172.20.0.8:42375) with 1 core(s)
+25/04/14 15:36:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20250414153600-0000/1 on hostPort 172.20.0.8:42375 with 1 core(s), 1024.0 MiB RAM
+25/04/14 15:36:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250414153600-0000/2 on worker-20250414153512-172.20.0.5-39609 (172.20.0.5:39609) with 1 core(s)
+25/04/14 15:36:00 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dde045451645, 42203, None)
+25/04/14 15:36:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20250414153600-0000/2 on hostPort 172.20.0.5:39609 with 1 core(s), 1024.0 MiB RAM
+25/04/14 15:36:01 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250414153600-0000/1 is now RUNNING
+25/04/14 15:36:01 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250414153600-0000/0 is now RUNNING
+25/04/14 15:36:01 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250414153600-0000/2 is now RUNNING
+25/04/14 15:36:01 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
 running load
-25/04/09 10:40:46 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
-25/04/09 10:40:46 INFO SharedState: Warehouse path is 'file:/opt/bitnami/spark/spark-warehouse'.
-25/04/09 10:40:48 INFO InMemoryFileIndex: It took 220 ms to list leaf files for 9 paths.
-25/04/09 10:40:49 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.8:51682) with ID 0,  ResourceProfileId 0
-25/04/09 10:40:49 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.6:34298) with ID 1,  ResourceProfileId 0
-25/04/09 10:40:49 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.4:36100) with ID 2,  ResourceProfileId 0
-25/04/09 10:40:49 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.8:40329 with 434.4 MiB RAM, BlockManagerId(0, 172.20.0.8, 40329, None)
-25/04/09 10:40:49 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.6:34487 with 434.4 MiB RAM, BlockManagerId(1, 172.20.0.6, 34487, None)
-25/04/09 10:40:49 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.4:39777 with 434.4 MiB RAM, BlockManagerId(2, 172.20.0.4, 39777, None)
-25/04/09 10:40:50 INFO FileSourceStrategy: Pushed Filters: IsNotNull(rejected_records)
-25/04/09 10:40:50 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(rejected_records#12)
-25/04/09 10:40:50 INFO CodeGenerator: Code generated in 196.185345 ms
-25/04/09 10:40:50 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 201.2 KiB, free 434.2 MiB)
-25/04/09 10:40:50 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 434.2 MiB)
-25/04/09 10:40:50 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 2bd8c065d526:42259 (size: 34.7 KiB, free: 434.4 MiB)
-25/04/09 10:40:50 INFO SparkContext: Created broadcast 0 from csv at <unknown>:0
-25/04/09 10:40:50 INFO FileSourceScanExec: Planning scan with bin packing, max size: 134217728 bytes, open cost is considered as scanning 4194304 bytes.
-25/04/09 10:40:51 INFO DAGScheduler: Registering RDD 3 (csv at <unknown>:0) as input to shuffle 0
-25/04/09 10:40:51 INFO DAGScheduler: Got map stage job 0 (csv at <unknown>:0) with 27 output partitions
-25/04/09 10:40:51 INFO DAGScheduler: Final stage: ShuffleMapStage 0 (csv at <unknown>:0)
-25/04/09 10:40:51 INFO DAGScheduler: Parents of final stage: List()
-25/04/09 10:40:51 INFO DAGScheduler: Missing parents: List()
-25/04/09 10:40:51 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0), which has no missing parents
-25/04/09 10:40:51 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 23.6 KiB, free 434.1 MiB)
-25/04/09 10:40:51 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 10.1 KiB, free 434.1 MiB)
-25/04/09 10:40:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 2bd8c065d526:42259 (size: 10.1 KiB, free: 434.4 MiB)
-25/04/09 10:40:51 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
-25/04/09 10:40:51 INFO DAGScheduler: Submitting 27 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
-25/04/09 10:40:51 INFO TaskSchedulerImpl: Adding task set 0.0 with 27 tasks resource profile 0
-25/04/09 10:40:51 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.20.0.4, executor 2, partition 0, PROCESS_LOCAL, 9637 bytes) 
-25/04/09 10:40:51 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (172.20.0.6, executor 1, partition 1, PROCESS_LOCAL, 9637 bytes) 
-25/04/09 10:40:51 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (172.20.0.8, executor 0, partition 2, PROCESS_LOCAL, 9626 bytes) 
-25/04/09 10:40:51 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (172.20.0.8, executor 0, partition 3, PROCESS_LOCAL, 9626 bytes) 
-25/04/09 10:40:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.4:39777 (size: 10.1 KiB, free: 434.4 MiB)
-25/04/09 10:40:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.8:40329 (size: 10.1 KiB, free: 434.4 MiB)
-25/04/09 10:40:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.6:34487 (size: 10.1 KiB, free: 434.4 MiB)
-25/04/09 10:40:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.8:40329 (size: 34.7 KiB, free: 434.4 MiB)
-25/04/09 10:40:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.4:39777 (size: 34.7 KiB, free: 434.4 MiB)
-25/04/09 10:40:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.6:34487 (size: 34.7 KiB, free: 434.4 MiB)
-25/04/09 10:41:02 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (172.20.0.4, executor 2, partition 4, PROCESS_LOCAL, 9615 bytes) 
-25/04/09 10:41:02 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (172.20.0.8, executor 0, partition 5, PROCESS_LOCAL, 9615 bytes) 
-25/04/09 10:41:03 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 11875 ms on 172.20.0.4 (executor 2) (1/27)
-25/04/09 10:41:03 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 11866 ms on 172.20.0.8 (executor 0) (2/27)
-25/04/09 10:41:03 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (172.20.0.8, executor 0, partition 6, PROCESS_LOCAL, 9626 bytes) 
-25/04/09 10:41:03 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 11963 ms on 172.20.0.8 (executor 0) (3/27)
-25/04/09 10:41:03 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (172.20.0.6, executor 1, partition 7, PROCESS_LOCAL, 9626 bytes) 
-25/04/09 10:41:03 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 12820 ms on 172.20.0.6 (executor 1) (4/27)
-25/04/09 10:41:11 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (172.20.0.4, executor 2, partition 8, PROCESS_LOCAL, 9615 bytes) 
-25/04/09 10:41:11 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 8696 ms on 172.20.0.4 (executor 2) (5/27)
-25/04/09 10:41:11 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (172.20.0.8, executor 0, partition 9, PROCESS_LOCAL, 9615 bytes) 
-25/04/09 10:41:11 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 8678 ms on 172.20.0.8 (executor 0) (6/27)
-25/04/09 10:41:11 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (172.20.0.8, executor 0, partition 10, PROCESS_LOCAL, 9626 bytes) 
-25/04/09 10:41:11 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 8712 ms on 172.20.0.8 (executor 0) (7/27)
-25/04/09 10:41:12 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: Master removed our application: KILLED
-25/04/09 10:41:12 INFO SparkContext: SparkContext is stopping with exitCode 0.
-25/04/09 10:41:12 INFO TaskSchedulerImpl: Cancelling stage 0
-25/04/09 10:41:12 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled: Job aborted due to stage failure: Master removed our application: KILLED
-25/04/09 10:41:12 INFO TaskSchedulerImpl: Stage 0 was cancelled
-25/04/09 10:41:12 INFO DAGScheduler: ShuffleMapStage 0 (csv at <unknown>:0) failed in 20.986 s due to Job aborted due to stage failure: Master removed our application: KILLED
-25/04/09 10:41:12 INFO SparkUI: Stopped Spark web UI at http://2bd8c065d526:4040
-25/04/09 10:41:12 INFO StandaloneSchedulerBackend: Shutting down all executors
-25/04/09 10:41:12 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
-25/04/09 10:41:12 ERROR Inbox: Ignoring error
-java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@35fb72e0[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@81aeeb4[Wrapped task = org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint$$anon$2@14359827]] rejected from java.util.concurrent.ScheduledThreadPoolExecutor@1cda5a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(Unknown Source)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(Unknown Source)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(Unknown Source)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.schedule(Unknown Source)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint.$anonfun$onDisconnected$1(StandaloneSchedulerBackend.scala:346)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint.onDisconnected(StandaloneSchedulerBackend.scala:313)
-	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:141)
-	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:213)
-	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:100)
-	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:75)
-	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:41)
+25/04/14 15:36:01 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/04/14 15:36:01 INFO SharedState: Warehouse path is 'file:/opt/bitnami/spark/spark-warehouse'.
+25/04/14 15:36:03 INFO InMemoryFileIndex: It took 285 ms to list leaf files for 9 paths.
+25/04/14 15:36:05 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.7:33628) with ID 0,  ResourceProfileId 0
+25/04/14 15:36:05 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.8:39722) with ID 1,  ResourceProfileId 0
+25/04/14 15:36:05 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.20.0.5:36036) with ID 2,  ResourceProfileId 0
+25/04/14 15:36:05 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.7:40777 with 434.4 MiB RAM, BlockManagerId(0, 172.20.0.7, 40777, None)
+25/04/14 15:36:05 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.8:40365 with 434.4 MiB RAM, BlockManagerId(1, 172.20.0.8, 40365, None)
+25/04/14 15:36:05 INFO BlockManagerMasterEndpoint: Registering block manager 172.20.0.5:42843 with 434.4 MiB RAM, BlockManagerId(2, 172.20.0.5, 42843, None)
+25/04/14 15:36:05 INFO FileSourceStrategy: Pushed Filters: IsNotNull(rejected_records)
+25/04/14 15:36:05 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(rejected_records#12)
+25/04/14 15:36:06 INFO CodeGenerator: Code generated in 214.271398 ms
+25/04/14 15:36:06 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 201.2 KiB, free 434.2 MiB)
+25/04/14 15:36:06 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 434.2 MiB)
+25/04/14 15:36:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on dde045451645:42203 (size: 34.7 KiB, free: 434.4 MiB)
+25/04/14 15:36:06 INFO SparkContext: Created broadcast 0 from csv at <unknown>:0
+25/04/14 15:36:06 INFO FileSourceScanExec: Planning scan with bin packing, max size: 134217728 bytes, open cost is considered as scanning 4194304 bytes.
+25/04/14 15:36:06 INFO DAGScheduler: Registering RDD 3 (csv at <unknown>:0) as input to shuffle 0
+25/04/14 15:36:06 INFO DAGScheduler: Got map stage job 0 (csv at <unknown>:0) with 27 output partitions
+25/04/14 15:36:06 INFO DAGScheduler: Final stage: ShuffleMapStage 0 (csv at <unknown>:0)
+25/04/14 15:36:06 INFO DAGScheduler: Parents of final stage: List()
+25/04/14 15:36:06 INFO DAGScheduler: Missing parents: List()
+25/04/14 15:36:06 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0), which has no missing parents
+25/04/14 15:36:06 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 23.6 KiB, free 434.1 MiB)
+25/04/14 15:36:06 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 10.1 KiB, free 434.1 MiB)
+25/04/14 15:36:06 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on dde045451645:42203 (size: 10.1 KiB, free: 434.4 MiB)
+25/04/14 15:36:06 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+25/04/14 15:36:06 INFO DAGScheduler: Submitting 27 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+25/04/14 15:36:06 INFO TaskSchedulerImpl: Adding task set 0.0 with 27 tasks resource profile 0
+25/04/14 15:36:06 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.20.0.8, executor 1, partition 0, PROCESS_LOCAL, 9637 bytes) 
+25/04/14 15:36:06 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (172.20.0.7, executor 0, partition 1, PROCESS_LOCAL, 9637 bytes) 
+25/04/14 15:36:06 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (172.20.0.5, executor 2, partition 2, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:06 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (172.20.0.7, executor 0, partition 3, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:07 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.5:42843 (size: 10.1 KiB, free: 434.4 MiB)
+25/04/14 15:36:07 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.7:40777 (size: 10.1 KiB, free: 434.4 MiB)
+25/04/14 15:36:07 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.20.0.8:40365 (size: 10.1 KiB, free: 434.4 MiB)
+25/04/14 15:36:08 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.7:40777 (size: 34.7 KiB, free: 434.4 MiB)
+25/04/14 15:36:08 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.5:42843 (size: 34.7 KiB, free: 434.4 MiB)
+25/04/14 15:36:08 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.20.0.8:40365 (size: 34.7 KiB, free: 434.4 MiB)
+25/04/14 15:36:17 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (172.20.0.8, executor 1, partition 4, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:17 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 10814 ms on 172.20.0.8 (executor 1) (1/27)
+25/04/14 15:36:25 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (172.20.0.7, executor 0, partition 5, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:25 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 18433 ms on 172.20.0.7 (executor 0) (2/27)
+25/04/14 15:36:25 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (172.20.0.7, executor 0, partition 6, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:25 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 18483 ms on 172.20.0.7 (executor 0) (3/27)
+25/04/14 15:36:25 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (172.20.0.5, executor 2, partition 7, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:25 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 18881 ms on 172.20.0.5 (executor 2) (4/27)
+25/04/14 15:36:25 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (172.20.0.8, executor 1, partition 8, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:25 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 8388 ms on 172.20.0.8 (executor 1) (5/27)
+25/04/14 15:36:31 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (172.20.0.7, executor 0, partition 9, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:31 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 5937 ms on 172.20.0.7 (executor 0) (6/27)
+25/04/14 15:36:31 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (172.20.0.7, executor 0, partition 10, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:31 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 6108 ms on 172.20.0.7 (executor 0) (7/27)
+25/04/14 15:36:32 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (172.20.0.8, executor 1, partition 11, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:32 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 6281 ms on 172.20.0.8 (executor 1) (8/27)
+25/04/14 15:36:32 INFO TaskSetManager: Starting task 12.0 in stage 0.0 (TID 12) (172.20.0.5, executor 2, partition 12, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:32 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 6946 ms on 172.20.0.5 (executor 2) (9/27)
+25/04/14 15:36:36 INFO TaskSetManager: Starting task 13.0 in stage 0.0 (TID 13) (172.20.0.7, executor 0, partition 13, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:36 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 4773 ms on 172.20.0.7 (executor 0) (10/27)
+25/04/14 15:36:36 INFO TaskSetManager: Starting task 14.0 in stage 0.0 (TID 14) (172.20.0.7, executor 0, partition 14, PROCESS_LOCAL, 9609 bytes) 
+25/04/14 15:36:36 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 5146 ms on 172.20.0.7 (executor 0) (11/27)
+25/04/14 15:36:37 INFO TaskSetManager: Starting task 15.0 in stage 0.0 (TID 15) (172.20.0.8, executor 1, partition 15, PROCESS_LOCAL, 9609 bytes) 
+25/04/14 15:36:37 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 5329 ms on 172.20.0.8 (executor 1) (12/27)
+25/04/14 15:36:37 INFO TaskSetManager: Starting task 16.0 in stage 0.0 (TID 16) (172.20.0.5, executor 2, partition 16, PROCESS_LOCAL, 9598 bytes) 
+25/04/14 15:36:37 INFO TaskSetManager: Finished task 12.0 in stage 0.0 (TID 12) in 5247 ms on 172.20.0.5 (executor 2) (13/27)
+25/04/14 15:36:40 INFO TaskSetManager: Starting task 17.0 in stage 0.0 (TID 17) (172.20.0.7, executor 0, partition 17, PROCESS_LOCAL, 9598 bytes) 
+25/04/14 15:36:40 INFO TaskSetManager: Finished task 13.0 in stage 0.0 (TID 13) in 4808 ms on 172.20.0.7 (executor 0) (14/27)
+25/04/14 15:36:41 INFO TaskSetManager: Starting task 18.0 in stage 0.0 (TID 18) (172.20.0.7, executor 0, partition 18, PROCESS_LOCAL, 9637 bytes) 
+25/04/14 15:36:41 INFO TaskSetManager: Finished task 14.0 in stage 0.0 (TID 14) in 4946 ms on 172.20.0.7 (executor 0) (15/27)
+25/04/14 15:36:42 INFO TaskSetManager: Starting task 19.0 in stage 0.0 (TID 19) (172.20.0.5, executor 2, partition 19, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:42 INFO TaskSetManager: Finished task 16.0 in stage 0.0 (TID 16) in 4794 ms on 172.20.0.5 (executor 2) (16/27)
+25/04/14 15:36:42 INFO TaskSetManager: Starting task 20.0 in stage 0.0 (TID 20) (172.20.0.8, executor 1, partition 20, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:42 INFO TaskSetManager: Finished task 15.0 in stage 0.0 (TID 15) in 5113 ms on 172.20.0.8 (executor 1) (17/27)
+25/04/14 15:36:43 INFO TaskSetManager: Starting task 21.0 in stage 0.0 (TID 21) (172.20.0.7, executor 0, partition 21, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:43 INFO TaskSetManager: Finished task 18.0 in stage 0.0 (TID 18) in 2661 ms on 172.20.0.7 (executor 0) (18/27)
+25/04/14 15:36:45 INFO TaskSetManager: Starting task 22.0 in stage 0.0 (TID 22) (172.20.0.8, executor 1, partition 22, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:45 INFO TaskSetManager: Finished task 20.0 in stage 0.0 (TID 20) in 2761 ms on 172.20.0.8 (executor 1) (19/27)
+25/04/14 15:36:45 INFO TaskSetManager: Starting task 23.0 in stage 0.0 (TID 23) (172.20.0.5, executor 2, partition 23, PROCESS_LOCAL, 9626 bytes) 
+25/04/14 15:36:45 INFO TaskSetManager: Finished task 19.0 in stage 0.0 (TID 19) in 2858 ms on 172.20.0.5 (executor 2) (20/27)
+25/04/14 15:36:45 INFO TaskSetManager: Starting task 24.0 in stage 0.0 (TID 24) (172.20.0.7, executor 0, partition 24, PROCESS_LOCAL, 9615 bytes) 
+25/04/14 15:36:45 INFO TaskSetManager: Finished task 17.0 in stage 0.0 (TID 17) in 4593 ms on 172.20.0.7 (executor 0) (21/27)
+25/04/14 15:36:46 INFO TaskSetManager: Starting task 25.0 in stage 0.0 (TID 25) (172.20.0.7, executor 0, partition 25, PROCESS_LOCAL, 9609 bytes) 
+25/04/14 15:36:46 INFO TaskSetManager: Finished task 21.0 in stage 0.0 (TID 21) in 2771 ms on 172.20.0.7 (executor 0) (22/27)
+25/04/14 15:36:48 INFO TaskSetManager: Starting task 26.0 in stage 0.0 (TID 26) (172.20.0.8, executor 1, partition 26, PROCESS_LOCAL, 9598 bytes) 
+25/04/14 15:36:48 INFO TaskSetManager: Finished task 22.0 in stage 0.0 (TID 22) in 2847 ms on 172.20.0.8 (executor 1) (23/27)
+25/04/14 15:36:48 INFO TaskSetManager: Finished task 24.0 in stage 0.0 (TID 24) in 2819 ms on 172.20.0.7 (executor 0) (24/27)
+25/04/14 15:36:48 INFO TaskSetManager: Finished task 23.0 in stage 0.0 (TID 23) in 3045 ms on 172.20.0.5 (executor 2) (25/27)
+25/04/14 15:36:49 INFO TaskSetManager: Finished task 25.0 in stage 0.0 (TID 25) in 2546 ms on 172.20.0.7 (executor 0) (26/27)
+25/04/14 15:36:50 INFO TaskSetManager: Finished task 26.0 in stage 0.0 (TID 26) in 2282 ms on 172.20.0.8 (executor 1) (27/27)
+25/04/14 15:36:50 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/04/14 15:36:50 INFO DAGScheduler: ShuffleMapStage 0 (csv at <unknown>:0) finished in 43.929 s
+25/04/14 15:36:50 INFO DAGScheduler: looking for newly runnable stages
+25/04/14 15:36:50 INFO DAGScheduler: running: Set()
+25/04/14 15:36:50 INFO DAGScheduler: waiting: Set()
+25/04/14 15:36:50 INFO DAGScheduler: failed: Set()
+25/04/14 15:36:50 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/04/14 15:36:50 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/04/14 15:36:50 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/04/14 15:36:50 INFO SparkContext: Starting job: csv at <unknown>:0
+25/04/14 15:36:50 INFO DAGScheduler: Got job 1 (csv at <unknown>:0) with 1 output partitions
+25/04/14 15:36:50 INFO DAGScheduler: Final stage: ResultStage 1 (csv at <unknown>:0)
+25/04/14 15:36:50 INFO DAGScheduler: Parents of final stage: List()
+25/04/14 15:36:50 INFO DAGScheduler: Missing parents: List()
+25/04/14 15:36:50 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[7] at csv at <unknown>:0), which has no missing parents
+25/04/14 15:36:50 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 208.6 KiB, free 433.9 MiB)
+25/04/14 15:36:50 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 75.0 KiB, free 433.9 MiB)
+25/04/14 15:36:50 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on dde045451645:42203 (size: 75.0 KiB, free: 434.3 MiB)
+25/04/14 15:36:50 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+25/04/14 15:36:50 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at csv at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+25/04/14 15:36:50 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+25/04/14 15:36:50 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 27) (172.20.0.7, executor 0, partition 0, PROCESS_LOCAL, 9024 bytes) 
+25/04/14 15:36:50 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 172.20.0.7:40777 (size: 75.0 KiB, free: 434.3 MiB)
+25/04/14 15:36:50 WARN TaskSetManager: Lost task 0.0 in stage 1.0 (TID 27) (172.20.0.7 executor 0): ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.base/java.lang.Thread.run(Unknown Source)
-25/04/09 10:41:12 ERROR Inbox: Ignoring error
-java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@31b169a1[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@3e538a5e[Wrapped task = org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint$$anon$2@283d6ce7]] rejected from java.util.concurrent.ScheduledThreadPoolExecutor@1cda5a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(Unknown Source)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(Unknown Source)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(Unknown Source)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.schedule(Unknown Source)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint.$anonfun$onDisconnected$1(StandaloneSchedulerBackend.scala:346)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend$StandaloneDriverEndpoint.onDisconnected(StandaloneSchedulerBackend.scala:313)
-	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:141)
-	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:213)
-	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:100)
-	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:75)
-	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:41)
+
+25/04/14 15:36:50 ERROR TaskSetManager: Task 0 in stage 1.0 failed 1 times; aborting job
+25/04/14 15:36:50 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+25/04/14 15:36:50 INFO TaskSchedulerImpl: Cancelling stage 1
+25/04/14 15:36:50 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage cancelled: Job aborted due to stage failure: Task 0 in stage 1.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1.0 (TID 27) (172.20.0.7 executor 0): ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.base/java.lang.Thread.run(Unknown Source)
-25/04/09 10:41:12 ERROR Utils: Uncaught exception in thread stop-spark-context
-org.apache.spark.SparkException: Exception thrown in awaitResult: 
-	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:56)
-	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:310)
-	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
-	at org.apache.spark.deploy.client.StandaloneAppClient.stop(StandaloneAppClient.scala:288)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.org$apache$spark$scheduler$cluster$StandaloneSchedulerBackend$$stop(StandaloneSchedulerBackend.scala:275)
-	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.stop(StandaloneSchedulerBackend.scala:142)
-	at org.apache.spark.scheduler.SchedulerBackend.stop(SchedulerBackend.scala:33)
-	at org.apache.spark.scheduler.SchedulerBackend.stop$(SchedulerBackend.scala:33)
-	at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stop(CoarseGrainedSchedulerBackend.scala:54)
-	at org.apache.spark.scheduler.TaskSchedulerImpl.$anonfun$stop$2(TaskSchedulerImpl.scala:992)
-	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
-	at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:992)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$4(DAGScheduler.scala:2976)
-	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
-	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2976)
-	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2258)
-	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
-	at org.apache.spark.SparkContext.stop(SparkContext.scala:2258)
-	at org.apache.spark.SparkContext.stop(SparkContext.scala:2211)
-	at org.apache.spark.SparkContext$$anon$3.run(SparkContext.scala:2198)
-Caused by: org.apache.spark.SparkException: Could not find AppClient.
-	at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:178)
-	at org.apache.spark.rpc.netty.Dispatcher.postLocalMessage(Dispatcher.scala:144)
-	at org.apache.spark.rpc.netty.NettyRpcEnv.askAbortable(NettyRpcEnv.scala:242)
-	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.askAbortable(NettyRpcEnv.scala:554)
-	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.ask(NettyRpcEnv.scala:558)
-	at org.apache.spark.rpc.RpcEndpointRef.ask(RpcEndpointRef.scala:72)
-	... 17 more
-25/04/09 10:41:12 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-25/04/09 10:41:12 INFO MemoryStore: MemoryStore cleared
-25/04/09 10:41:12 INFO BlockManager: BlockManager stopped
-25/04/09 10:41:12 INFO BlockManagerMaster: BlockManagerMaster stopped
-25/04/09 10:41:12 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-25/04/09 10:41:12 INFO SparkContext: Successfully stopped SparkContext
-An error occurred while reading the CSV: An error occurred while calling o62.csv.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Master removed our application: KILLED
+
+Driver stacktrace:
+25/04/14 15:36:50 INFO DAGScheduler: ResultStage 1 (csv at <unknown>:0) failed in 0.161 s due to Job aborted due to stage failure: Task 0 in stage 1.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1.0 (TID 27) (172.20.0.7 executor 0): ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+25/04/14 15:36:50 INFO DAGScheduler: Job 1 failed: csv at <unknown>:0, took 0.171314 s
+25/04/14 15:36:50 ERROR FileFormatWriter: Aborting job f597e9db-522f-43da-81c8-bd7308e6bdf8.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 1.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1.0 (TID 27) (172.20.0.7 executor 0): ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
 	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
@@ -200,17 +362,277 @@ An error occurred while reading the CSV: An error occurred while calling o62.csv
 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
 	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:307)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:271)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.$anonfun$executeCollect$1(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.withFinalPlanUpdate(AdaptiveSparkPlanExec.scala:420)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.executeCollect(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:243)
+	at org.apache.spark.sql.DataFrameWriter.csv(DataFrameWriter.scala:860)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
 
-2025-04-09 10:41:12,195 - WARNING - Spark Session got killed or others issue encountered !!! 'NoneType' object has no attribute 'withColumn'
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 more
+An error occurred while reading the CSV: An error occurred while calling o62.csv.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 1.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1.0 (TID 27) (172.20.0.7 executor 0): ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:307)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:271)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.$anonfun$executeCollect$1(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.withFinalPlanUpdate(AdaptiveSparkPlanExec.scala:420)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.executeCollect(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:243)
+	at org.apache.spark.sql.DataFrameWriter.csv(DataFrameWriter.scala:860)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: ExitCodeException exitCode=1: chmod: changing permissions of '/mnt/apps/gcs/logs/ACMVPF/_temporary/0/_temporary': Operation not permitted
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1007)
+	at org.apache.hadoop.util.Shell.run(Shell.java:900)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1212)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1306)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1288)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:513)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:500)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1195)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1175)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1064)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:81)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStreamWriter(CodecStreams.scala:92)
+	at org.apache.spark.sql.execution.datasources.csv.CsvOutputWriter.<init>(CsvOutputWriter.scala:38)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat$$anon$1.newInstance(CSVFileFormat.scala:84)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:161)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:146)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:389)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:100)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 more
+
+2025-04-14 15:36:51,089 - WARNING - Spark Session got killed or others issue encountered !!! 'NoneType' object has no attribute 'withColumn'
 running completed
-2025-04-09 10:41:12,196 - INFO - Closing down clientserver connection
-2025-04-09 10:41:12,196 - INFO - 
+2025-04-14 15:36:51,089 - INFO - Closing down clientserver connection
+2025-04-14 15:36:51,090 - INFO - 
                 List Of Parameters
                 -----------------------------------------------
                 SparkName Mandatory = BATCH_ACT_VAL
                 List Of DQC result = []
             
-25/04/09 10:41:12 INFO ShutdownHookManager: Shutdown hook called
-25/04/09 10:41:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-240beb9b-1bc7-4a4b-b4e2-eff4fd18c305
-25/04/09 10:41:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-5c411a6f-bd06-4984-8572-835a6c9b34de
-25/04/09 10:41:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-240beb9b-1bc7-4a4b-b4e2-eff4fd18c305/pyspark-92b59064-f614-47c6-a799-42eafd30407b
+25/04/14 15:36:51 INFO SparkContext: Invoking stop() from shutdown hook
+25/04/14 15:36:51 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/04/14 15:36:51 INFO SparkUI: Stopped Spark web UI at http://dde045451645:4040
+25/04/14 15:36:51 INFO StandaloneSchedulerBackend: Shutting down all executors
+25/04/14 15:36:51 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+25/04/14 15:36:51 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/04/14 15:36:51 INFO MemoryStore: MemoryStore cleared
+25/04/14 15:36:51 INFO BlockManager: BlockManager stopped
+25/04/14 15:36:51 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/04/14 15:36:51 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/04/14 15:36:51 INFO SparkContext: Successfully stopped SparkContext
+25/04/14 15:36:51 INFO ShutdownHookManager: Shutdown hook called
+25/04/14 15:36:51 INFO ShutdownHookManager: Deleting directory /tmp/spark-e127fda5-bd5a-4fc5-80ad-8d273de3bcda
+25/04/14 15:36:51 INFO ShutdownHookManager: Deleting directory /tmp/spark-9ce31bf6-119b-4cef-908a-77d281e1307c
+25/04/14 15:36:51 INFO ShutdownHookManager: Deleting directory /tmp/spark-e127fda5-bd5a-4fc5-80ad-8d273de3bcda/pyspark-9be81978-a412-4f11-a833-7a167f8c3c7a

@@ -75,3 +75,10 @@
 - pip download pandas --python-version 38 --only-binary :all: -d ./pandas_wheels
 - pip download tabulate --python-version 38 --only-binary :all: -d ./tabulate_wheels
 - pip download jupyterlab --python-version 38 --only-binary :all: -d ./jupyterlab_wheels
+
+## ssh connection setup
+
+- makesure open ssh is installed mostly have it under linux base
+- create public keys ssh-keygen -t rsa -b 2048 -f ssh_keys/id_rsa -N "" assuming inside ssh_keys folder mount to airflow
+- create authorized_keys inside ssh created to copy id_rsa.pub from above step
+- test under container to initiate log in to docker exec -it spark-bitnami-airflow-webserver-1 ssh -i /home/airflow/.ssh/id_rsa -v agam@172.27.23.224
