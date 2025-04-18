@@ -2,10 +2,6 @@ FROM apache/airflow:slim-2.10.5-python3.8
 
 USER root
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends openssh-client && \
-    apt-get clean
-
 # Create the docker group (if it doesn't exist)
 RUN if ! getent group docker; then groupadd -g 1002 docker; fi   
 
@@ -14,6 +10,7 @@ RUN if ! getent passwd airflow; then useradd -ms /bin/bash airflow; fi
 
 COPY airflow.cfg /opt/airflow/
 COPY library/psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl /tmp/
+COPY library/paramiko/ /tmp/paramiko/
 
 # Set JAVA_HOME environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
@@ -23,9 +20,10 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 RUN usermod -aG docker airflow
 
 USER airflow
-RUN pip install --no-index --find-links=/tmp/ /tmp/psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 
-USER root
+RUN pip install --no-index --find-links=/tmp/ /tmp/psycopg2_binary-2.9.10-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+RUN pip install --no-index --find-links=/tmp/paramiko/ paramiko
+
 
 #RUN pip install --upgrade pip
 

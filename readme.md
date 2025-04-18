@@ -78,7 +78,8 @@
 
 ## ssh connection setup
 
-- makesure open ssh is installed mostly have it under linux base
+- makesure open ssh is installed mostly have it under linux base ssh -V or sudo systemctl status ssh
 - create public keys ssh-keygen -t rsa -b 2048 -f ssh_keys/id_rsa -N "" assuming inside ssh_keys folder mount to airflow
-- create authorized_keys inside ssh created to copy id_rsa.pub from above step
+- create authorized_keys inside ssh created to copy id_rsa.pub from above step /home/agam
 - test under container to initiate log in to docker exec -it spark-bitnami-airflow-webserver-1 ssh -i /home/airflow/.ssh/id_rsa -v agam@172.27.23.224
+- check local ip address under wsl >> ip addr >> see eth0
