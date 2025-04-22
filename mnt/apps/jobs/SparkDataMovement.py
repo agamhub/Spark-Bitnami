@@ -67,11 +67,19 @@ def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
         "mode": "PERMISSIVE"
     }
     base_options.update(kwargs)
+    mismatched_expected = "None"
 
     try:
+        temp_df = spark.read.options(**{"header": "True", "inferSchema": "True","sep": "|"}).csv(file_path).limit(0)
+        actual_headers = [field.name for field in temp_df.schema]
+        expected_headers = [field.name for field in schema]
+
+        if actual_headers != expected_headers:
+            mismatched_expected = set(expected_headers) - set(actual_headers)
+
         schema = StructType(schema.fields + [StructField("rejected_records", StringType(), True)])
         df = spark.read.options(**base_options).schema(schema).csv(file_path)
-
+        df.show(5, truncate=False)
         rejected_df = df.filter(col("rejected_records").isNotNull()).withColumn(
             "error_details", lit("Error DDL please check contents")).limit(100)
         rejected_df = rejected_df.drop("rejected_records")
@@ -85,7 +93,7 @@ def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
         rejected_df.show()
         df = df.drop("rejected_records")
 
-        return df
+        return df, mismatched_expected
     except FileNotFoundError:
         print(f"Error: File not found at path: {file_path}")
         return None
@@ -282,10 +290,12 @@ if __name__ == "__main__":
                 PathSchema = f"/mnt/apps/gcs/Schema/{sc}.csv"
                 Logs = pathLogs + f"{sc}"
                 df_dtype = construct_sql_schema(path=PathSchema, sep="|")
-                df = spark_read_csv_from_os(spark, path, schema=df_dtype, sep="|", logPath=Logs)
+                df, mismatched_expected = spark_read_csv_from_os(spark, path, schema=df_dtype, sep="|", logPath=Logs)
                 result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
-                if result:
-                    print(dqc_msg)
+                #print(df_final.printSchema())
+                print(f"{pathParquet} before if miss : {mismatched_expected}")
+                if result or mismatched_expected != "None":
+                    dqc_msg.append(f"missmatched columns are {mismatched_expected}")
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":-1, "Message":dqc_msg, "Status":"Failed"})
                     atexit.register(exit_handler)
                 else:

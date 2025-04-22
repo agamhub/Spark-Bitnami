@@ -1,0 +1,21 @@
+[2025-04-22T05:04:31.477+0000] {processor.py:186} INFO - Started process (PID=2571) to work on /opt/airflow/dags/callsh.py
+[2025-04-22T05:04:31.478+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/callsh.py for tasks to queue
+[2025-04-22T05:04:31.479+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:04:31.479+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/callsh.py
+[2025-04-22T05:04:31.492+0000] {processor.py:925} INFO - DAG(s) 'callsh' retrieved from /opt/airflow/dags/callsh.py
+[2025-04-22T05:04:31.513+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:04:31.513+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-22T05:04:31.524+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:04:31.524+0000] {dag.py:4180} INFO - Setting next_dagrun for callsh to None, run_after=None
+[2025-04-22T05:04:31.541+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/callsh.py took 0.069 seconds
+[2025-04-22T05:05:01.635+0000] {processor.py:186} INFO - Started process (PID=2606) to work on /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:01.635+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/callsh.py for tasks to queue
+[2025-04-22T05:05:01.637+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:01.637+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:01.649+0000] {processor.py:925} INFO - DAG(s) 'callsh' retrieved from /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:01.668+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:01.667+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-22T05:05:01.678+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:01.678+0000] {dag.py:4180} INFO - Setting next_dagrun for callsh to None, run_after=None
+[2025-04-22T05:05:01.694+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/callsh.py took 0.064 seconds
+[2025-04-22T05:05:31.805+0000] {processor.py:186} INFO - Started process (PID=2641) to work on /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:31.806+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/callsh.py for tasks to queue
+[2025-04-22T05:05:31.807+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:31.807+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:31.819+0000] {processor.py:925} INFO - DAG(s) 'callsh' retrieved from /opt/airflow/dags/callsh.py
+[2025-04-22T05:05:31.839+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:31.838+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-22T05:05:31.850+0000] {logging_mixin.py:190} INFO - [2025-04-22T05:05:31.849+0000] {dag.py:4180} INFO - Setting next_dagrun for callsh to None, run_after=None
+[2025-04-22T05:05:31.866+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/callsh.py took 0.066 seconds
