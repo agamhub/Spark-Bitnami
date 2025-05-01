@@ -67,15 +67,13 @@ def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
         "mode": "PERMISSIVE"
     }
     base_options.update(kwargs)
-    mismatched_expected = "None"
-
+    
     try:
         temp_df = spark.read.options(**{"header": "True", "inferSchema": "True","sep": "|"}).csv(file_path).limit(0)
         actual_headers = [field.name for field in temp_df.schema]
         expected_headers = [field.name for field in schema]
 
-        if actual_headers != expected_headers:
-            mismatched_expected = set(expected_headers) - set(actual_headers)
+        mismatched_expected = print_different_headers(actual_headers, expected_headers)
 
         schema = StructType(schema.fields + [StructField("rejected_records", StringType(), True)])
         df = spark.read.options(**base_options).schema(schema).csv(file_path)
@@ -149,6 +147,12 @@ def validateDecimal(**kwargs):
     is_valid = False
     errors = []
     dqcId = "DQ000001"
+    if kwargs["missmatched_expected"] != "None":
+        is_valid = True
+        error_msg = (f"Mismatched columns: {kwargs['missmatched_expected']}")
+        errors.append(error_msg)
+        return is_valid, errors, df_contents, dqcId
+
     for field in kwargs["dtypes"]:
         colName = field.name
         dType = str(field.dataType)
@@ -291,11 +295,10 @@ if __name__ == "__main__":
                 Logs = pathLogs + f"{sc}"
                 df_dtype = construct_sql_schema(path=PathSchema, sep="|")
                 df, mismatched_expected = spark_read_csv_from_os(spark, path, schema=df_dtype, sep="|", logPath=Logs)
-                result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df)
+                result, dqc_msg, df_final, dqcId = validateDecimal(dtypes=df_dtype, df_contents=df, missmatched_expected=mismatched_expected)
                 #print(df_final.printSchema())
                 print(f"{pathParquet} before if miss : {mismatched_expected}")
                 if result or mismatched_expected != "None":
-                    dqc_msg.append(f"missmatched columns are {mismatched_expected}")
                     dqcOutput.append({"JobName":sc, "Path":path, "dqID":dqcId, "CountRecords":-1, "Message":dqc_msg, "Status":"Failed"})
                     atexit.register(exit_handler)
                 else:
@@ -327,9 +330,11 @@ if __name__ == "__main__":
             """
         )
 
-        df_dqc = create_dataframe_from_dict(spark, dqcOutput)
-        exploded_df = df_dqc.select("JobName", "Path", "dqID", "CountRecords", explode("Message").alias("Message"), "Status")
-        exploded_df.show(truncate=False)
+        spark.createDataFrame(dqcOutput).select("JobName", "Path", "dqID", "CountRecords", "Message", "Status").show(truncate=False)
+        # df_dqc = create_dataframe_from_dict(spark, dqcOutput)
+        # dqcOutput.show(truncate=False)
+        #exploded_df = df_dqc.select("JobName", "Path", "dqID", "CountRecords", explode("Message").alias("Message"), "Status")
+        #exploded_df.show(truncate=False)
 
         spark.stop()
         logging.shutdown()

@@ -47,6 +47,27 @@ def create_dataframe_from_dict(spark, data_dict):
     row = dict_to_row(data_dict)
     return spark.createDataFrame([row])
 
+def print_different_headers(csv_headers, schema_headers):
+    """
+    Prints the headers that are in a different order between two lists.
+
+    Args:
+        csv_headers (list): A list of header names from a CSV file.
+        schema_headers (list): A list of header names from a schema.
+    """
+    msg = []
+    if csv_headers == schema_headers:
+        print("Headers are in the same order.")
+        return "None"
+
+    print("Headers are in a different order:")
+    for i, (csv_header, schema_header) in enumerate(zip(csv_headers, schema_headers)):
+        if csv_header != schema_header:
+            msg.append(f"Position {i+1}: CSV has '{csv_header}', Schema has '{schema_header}'")
+
+    return(msg)
+
+
 if __name__ == "__main__":
     app_name = sys.argv[1]  # Get app_name from command-line argument
     result = get_spark_app_id(app_name)
