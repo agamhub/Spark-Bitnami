@@ -964,3 +964,290 @@
 [2025-08-02T03:27:52.301+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:27:52.300+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-08-02T03:27:52.322+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:27:52.322+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:20:00+00:00, run_after=2025-08-02 03:25:00+00:00
 [2025-08-02T03:27:52.338+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.078 seconds
+[2025-08-02T03:28:22.453+0000] {processor.py:186} INFO - Started process (PID=7110) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:22.454+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:28:22.455+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:22.455+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:22.469+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:22.487+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:22.487+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:28:22.509+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:22.509+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:20:00+00:00, run_after=2025-08-02 03:25:00+00:00
+[2025-08-02T03:28:22.527+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.080 seconds
+[2025-08-02T03:28:52.653+0000] {processor.py:186} INFO - Started process (PID=7160) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:52.654+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:28:52.656+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:52.655+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:52.671+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:28:52.690+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:52.690+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:28:52.714+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:28:52.713+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:20:00+00:00, run_after=2025-08-02 03:25:00+00:00
+[2025-08-02T03:28:52.730+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.082 seconds
+[2025-08-02T03:29:22.863+0000] {processor.py:186} INFO - Started process (PID=7210) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:22.863+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:29:22.865+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:22.865+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:22.879+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:22.896+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:22.896+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:29:22.918+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:22.917+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:20:00+00:00, run_after=2025-08-02 03:25:00+00:00
+[2025-08-02T03:29:22.933+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.075 seconds
+[2025-08-02T03:29:53.866+0000] {processor.py:186} INFO - Started process (PID=7260) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:53.866+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:29:53.868+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:53.868+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:53.882+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:29:53.899+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:53.899+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:29:53.921+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:29:53.921+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:20:00+00:00, run_after=2025-08-02 03:25:00+00:00
+[2025-08-02T03:29:53.937+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:30:23.982+0000] {processor.py:186} INFO - Started process (PID=7307) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:23.983+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:30:23.984+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:23.984+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:23.999+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:24.015+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:24.015+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:30:24.036+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:24.036+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:30:24.053+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:30:55.174+0000] {processor.py:186} INFO - Started process (PID=7360) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:55.175+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:30:55.176+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:55.176+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:55.191+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:30:55.207+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:55.207+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:30:55.228+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:30:55.228+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:30:55.241+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.073 seconds
+[2025-08-02T03:31:26.502+0000] {processor.py:186} INFO - Started process (PID=7410) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:26.503+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:31:26.504+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:26.504+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:26.520+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:26.537+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:26.537+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:31:26.559+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:26.558+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:31:26.573+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.076 seconds
+[2025-08-02T03:31:57.731+0000] {processor.py:186} INFO - Started process (PID=7460) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:57.732+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:31:57.734+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:57.733+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:57.748+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:31:57.765+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:57.764+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:31:57.786+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:31:57.785+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:31:57.800+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.074 seconds
+[2025-08-02T03:32:28.910+0000] {processor.py:186} INFO - Started process (PID=7510) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:32:28.911+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:32:28.913+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:32:28.913+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:32:28.929+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:32:28.949+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:32:28.948+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:32:28.974+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:32:28.974+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:32:28.994+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.090 seconds
+[2025-08-02T03:33:00.096+0000] {processor.py:186} INFO - Started process (PID=7560) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:00.097+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:33:00.099+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:00.099+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:00.113+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:00.130+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:00.130+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:33:00.150+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:00.150+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:33:00.164+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.073 seconds
+[2025-08-02T03:33:31.201+0000] {processor.py:186} INFO - Started process (PID=7610) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:31.201+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:33:31.204+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:31.203+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:31.218+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:33:31.234+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:31.234+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:33:31.253+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:33:31.253+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:33:31.268+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.072 seconds
+[2025-08-02T03:34:01.533+0000] {processor.py:186} INFO - Started process (PID=7660) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:01.534+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:34:01.536+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:01.536+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:01.551+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:01.568+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:01.567+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:34:01.588+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:01.588+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:34:02.329+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:34:32.724+0000] {processor.py:186} INFO - Started process (PID=7710) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:32.725+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:34:32.727+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:32.726+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:32.744+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:34:32.762+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:32.762+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:34:32.784+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:34:32.784+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:25:00+00:00, run_after=2025-08-02 03:30:00+00:00
+[2025-08-02T03:34:32.800+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.081 seconds
+[2025-08-02T03:35:03.246+0000] {processor.py:186} INFO - Started process (PID=7760) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:03.247+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:35:03.249+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:03.248+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:03.263+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:03.279+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:03.279+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:35:03.300+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:03.300+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:35:03.316+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.075 seconds
+[2025-08-02T03:35:33.435+0000] {processor.py:186} INFO - Started process (PID=7810) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:33.436+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:35:33.437+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:33.437+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:33.452+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:35:33.469+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:33.469+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:35:33.489+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:35:33.489+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:35:33.505+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.076 seconds
+[2025-08-02T03:36:03.568+0000] {processor.py:186} INFO - Started process (PID=7860) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:03.569+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:36:03.571+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:03.571+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:03.585+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:03.603+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:03.603+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:36:03.625+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:03.625+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:36:03.640+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:36:33.700+0000] {processor.py:186} INFO - Started process (PID=7910) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:33.700+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:36:33.702+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:33.702+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:33.716+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:36:33.734+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:33.734+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:36:33.756+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:36:33.756+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:36:33.773+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.078 seconds
+[2025-08-02T03:37:03.835+0000] {processor.py:186} INFO - Started process (PID=7955) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:03.836+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:37:03.837+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:03.837+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:03.852+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:03.870+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:03.870+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:37:03.892+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:03.892+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:37:03.909+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.080 seconds
+[2025-08-02T03:37:33.995+0000] {processor.py:186} INFO - Started process (PID=8007) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:33.996+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:37:33.998+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:33.997+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:34.012+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:37:34.030+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:34.030+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:37:34.051+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:37:34.050+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:37:34.067+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:38:04.325+0000] {processor.py:186} INFO - Started process (PID=8060) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:04.326+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:38:04.328+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:04.328+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:04.345+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:04.364+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:04.364+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:38:04.388+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:04.387+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:38:04.407+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.088 seconds
+[2025-08-02T03:38:34.502+0000] {processor.py:186} INFO - Started process (PID=8110) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:34.503+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:38:34.506+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:34.505+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:34.528+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:38:34.561+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:34.561+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:38:34.604+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:38:34.604+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:38:34.639+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.146 seconds
+[2025-08-02T03:39:05.576+0000] {processor.py:186} INFO - Started process (PID=8160) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:05.577+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:39:05.578+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:05.578+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:05.592+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:05.610+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:05.609+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:39:05.631+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:05.630+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:39:05.645+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.074 seconds
+[2025-08-02T03:39:35.784+0000] {processor.py:186} INFO - Started process (PID=8210) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:35.785+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:39:35.787+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:35.787+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:35.802+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:39:35.821+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:35.820+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:39:35.843+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:39:35.843+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:30:00+00:00, run_after=2025-08-02 03:35:00+00:00
+[2025-08-02T03:39:35.861+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.082 seconds
+[2025-08-02T03:40:05.903+0000] {processor.py:186} INFO - Started process (PID=8257) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:05.904+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:40:05.906+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:05.906+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:05.919+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:05.935+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:05.935+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:40:05.956+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:05.955+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:40:05.975+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:40:36.040+0000] {processor.py:186} INFO - Started process (PID=8307) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:36.041+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:40:36.043+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:36.043+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:36.057+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:40:36.074+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:36.074+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:40:36.096+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:40:36.096+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:40:36.111+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:41:06.615+0000] {processor.py:186} INFO - Started process (PID=8360) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:06.615+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:41:06.617+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:06.617+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:06.632+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:06.650+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:06.650+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:41:06.673+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:06.673+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:41:06.692+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.085 seconds
+[2025-08-02T03:41:37.542+0000] {processor.py:186} INFO - Started process (PID=8410) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:37.543+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:41:37.544+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:37.544+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:37.559+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:41:37.579+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:37.579+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:41:37.606+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:41:37.606+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:41:37.626+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.089 seconds
+[2025-08-02T03:42:08.105+0000] {processor.py:186} INFO - Started process (PID=8460) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:08.106+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:42:08.108+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:08.107+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:08.126+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:08.160+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:08.159+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:42:08.191+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:08.191+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:42:08.216+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.116 seconds
+[2025-08-02T03:42:38.402+0000] {processor.py:186} INFO - Started process (PID=8510) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:38.403+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:42:38.404+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:38.404+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:38.418+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:42:38.436+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:38.436+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:42:38.457+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:42:38.457+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:42:38.474+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:43:08.845+0000] {processor.py:186} INFO - Started process (PID=8560) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:08.846+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:43:08.848+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:08.847+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:08.862+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:08.880+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:08.879+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:43:08.902+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:08.901+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:43:08.920+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.079 seconds
+[2025-08-02T03:43:39.831+0000] {processor.py:186} INFO - Started process (PID=8610) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:39.832+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:43:39.834+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:39.833+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:39.847+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:43:39.865+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:39.865+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:43:39.888+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:43:39.888+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:43:39.903+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.077 seconds
+[2025-08-02T03:44:10.691+0000] {processor.py:186} INFO - Started process (PID=8660) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:10.692+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:44:10.693+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:10.693+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:10.707+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:10.725+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:10.724+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:44:10.746+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:10.746+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:44:10.762+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.075 seconds
+[2025-08-02T03:44:41.691+0000] {processor.py:186} INFO - Started process (PID=8710) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:41.692+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:44:41.694+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:41.694+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:41.711+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:44:41.733+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:41.732+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:44:41.759+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:44:41.758+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:35:00+00:00, run_after=2025-08-02 03:40:00+00:00
+[2025-08-02T03:44:41.776+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.092 seconds
+[2025-08-02T03:45:11.816+0000] {processor.py:186} INFO - Started process (PID=8757) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:11.816+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:45:11.818+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:11.818+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:11.831+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:11.847+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:11.847+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:45:11.867+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:11.867+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:45:11.881+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.070 seconds
+[2025-08-02T03:45:42.786+0000] {processor.py:186} INFO - Started process (PID=8810) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:42.787+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:45:42.788+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:42.788+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:42.803+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:45:42.823+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:42.823+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:45:42.847+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:45:42.847+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:45:42.865+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.084 seconds
+[2025-08-02T03:46:12.914+0000] {processor.py:186} INFO - Started process (PID=8857) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:12.915+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:46:12.917+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:12.917+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:12.930+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:12.952+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:12.952+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:46:12.981+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:12.981+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:46:13.001+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.092 seconds
+[2025-08-02T03:46:43.881+0000] {processor.py:186} INFO - Started process (PID=8910) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:43.881+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:46:43.883+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:43.883+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:43.897+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:46:43.914+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:43.914+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:46:43.937+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:46:43.937+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:46:43.955+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.079 seconds
+[2025-08-02T03:47:14.131+0000] {processor.py:186} INFO - Started process (PID=8960) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:14.133+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:47:14.136+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:14.135+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:14.157+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:14.181+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:14.181+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:47:14.207+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:14.207+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:47:14.225+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.106 seconds
+[2025-08-02T03:47:44.329+0000] {processor.py:186} INFO - Started process (PID=9010) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:44.330+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:47:44.332+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:44.332+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:44.348+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:47:44.368+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:44.368+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:47:44.394+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:47:44.394+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:47:44.411+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.088 seconds
+[2025-08-02T03:48:14.468+0000] {processor.py:186} INFO - Started process (PID=9057) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:14.469+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:48:14.471+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:14.471+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:14.491+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:14.512+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:14.511+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:48:14.554+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:14.553+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:48:14.576+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.116 seconds
+[2025-08-02T03:48:44.820+0000] {processor.py:186} INFO - Started process (PID=9110) to work on /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:44.821+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/housekeep.py for tasks to queue
+[2025-08-02T03:48:44.823+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:44.823+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:44.839+0000] {processor.py:925} INFO - DAG(s) 'housekeeping_job' retrieved from /opt/airflow/dags/housekeep.py
+[2025-08-02T03:48:44.857+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:44.857+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-08-02T03:48:44.879+0000] {logging_mixin.py:190} INFO - [2025-08-02T03:48:44.879+0000] {dag.py:4180} INFO - Setting next_dagrun for housekeeping_job to 2025-08-02 03:40:00+00:00, run_after=2025-08-02 03:45:00+00:00
+[2025-08-02T03:48:44.895+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/housekeep.py took 0.079 seconds
