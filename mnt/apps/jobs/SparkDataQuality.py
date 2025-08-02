@@ -68,6 +68,14 @@ def ListTable():
        listCreatedTable.append(table.tableName)
     return listCreatedTable
 
+def format_duration(duration_seconds):
+    if duration_seconds < 60:
+        return f"{duration_seconds:.2f} seconds"
+    elif duration_seconds < 3600:
+        return f"{duration_seconds / 60:.2f} minutes"
+    else:
+        return f"{duration_seconds / 3600:.2f} hours"
+
 def getTables(**kwargs):
     df = pandas_read_csv(kwargs["path"], sep="|")
     df = df.query(f"BatchName == '{args.batchname}' & Run == 1")
@@ -81,7 +89,6 @@ def getTables(**kwargs):
     return joined_df, df
 
 def executeScripts(sparkDqc, **kwargs):
-    start_time = datetime.now()
     try:
         if kwargs["SP"] == 1:
             with open(kwargs["Scripts"], 'r') as file:
@@ -91,21 +98,31 @@ def executeScripts(sparkDqc, **kwargs):
 
             for sql in sql_statements:
                 sql_upper = sql.upper()
+                start_time = datetime.now()
                 if sql_upper.startswith("SELECT"): #Check if the string STARTS with select.
                     result_df = sparkDqc.sql(sql)
+
+                    end_time = datetime.now()
+                    duration_seconds = (end_time - start_time).total_seconds()
                 else:
                     sparkDqc.sql(sql)
+                    end_time = datetime.now()
+                    duration = format_duration((end_time - start_time).total_seconds())
         else:
+            start_time = datetime.now()
             result_df = sparkDqc.sql(kwargs["Scripts"])
+            end_time = datetime.now() # For non-SELECT, we only measure the execution call
+            duration_seconds = (end_time - start_time).total_seconds()
+            duration = format_duration(duration_seconds)
 
-        end_time = datetime.now()
-        duration_seconds = (end_time - start_time).total_seconds()
-        if duration_seconds < 60:
-            duration = f"{duration_seconds:.2f} seconds"
-        elif duration_seconds < 3600:
-            duration = f"{duration_seconds / 60:.2f} minutes"
-        else:
-            duration = f"{duration_seconds / 3600:.2f} hours"
+        # end_time = datetime.now()
+        # duration_seconds = (end_time - start_time).total_seconds()
+        # if duration_seconds < 60:
+        #     duration = f"{duration_seconds:.2f} seconds"
+        # elif duration_seconds < 3600:
+        #     duration = f"{duration_seconds / 60:.2f} minutes"
+        # else:
+        #     duration = f"{duration_seconds / 3600:.2f} hours"
 
         count = result_df.collect()[0]
         status = "Failed" if count["CNT"] != 0 else "Successful"

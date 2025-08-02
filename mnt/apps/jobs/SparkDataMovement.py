@@ -63,6 +63,8 @@ def spark_read_csv_from_os(spark, file_path, schema, **kwargs):
         "inferSchema": "False",
         "header": "True",
         "quote": '"',
+        "escape": '"',
+        "multiLine": "False",
         "columnNameOfCorruptRecord": "rejected_records",
         "mode": "PERMISSIVE"
     }
@@ -147,6 +149,7 @@ def validateDecimal(**kwargs):
     is_valid = False
     errors = []
     dqcId = "DQ000001"
+    
     if kwargs["missmatched_expected"] != "None":
         is_valid = True
         error_msg = (f"Mismatched columns: {kwargs['missmatched_expected']}")
@@ -215,7 +218,8 @@ def validateDecimal(**kwargs):
 def writeToParquet(df, path):
     try:
         #print("Write to parquet started : ",path)
-        df = df.coalesce(30)
+        print("numbers of rdd ", df.rdd.getNumPartitions())
+        df = df.coalesce(2)
         df.write.parquet(path, mode="overwrite", compression="snappy")
         return True
     except Exception as e:  # Catch other potential exceptions (e.g., parsing errors)

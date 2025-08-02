@@ -6,11 +6,13 @@ from airflow.models import Variable
 from airflow.utils.edgemodifier import Label
 from datetime import datetime
 from airflow.utils.task_group import TaskGroup
+from airflow.utils.dates import days_ago
 
+# interval_cron = "*/2 * * * *"
 
 with DAG(
     dag_id="DataQualityOrchestration",
-    schedule=None,
+    schedule_interval=None,
     start_date=None,  # Updated start date
     catchup=False,
     tags=["DataQuality"],

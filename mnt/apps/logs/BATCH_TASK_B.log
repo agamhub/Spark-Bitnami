@@ -1,0 +1,8 @@
+2025-05-10 15:56:13,265 - INFO - +-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
+| BatchName | JobName | SourceDirectory | FileName | FileType | Flag | Delimiter | Backdated | Refreshment | Reformat |
++-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
++-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
+2025-05-10 15:56:13,269 - WARNING - Please enable flag to 1 if you want to re-order Data Movement
+25/05/10 15:56:13 INFO ShutdownHookManager: Shutdown hook called
+25/05/10 15:56:13 INFO ShutdownHookManager: Deleting directory /tmp/spark-5b0f70ed-f677-4007-be46-faa54afc4021
+Sat May 10 15:56:13 UTC 2025 - BASH - Spark job 'BATCH_TASK_B' completed

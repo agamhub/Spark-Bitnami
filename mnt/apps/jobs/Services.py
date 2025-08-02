@@ -56,6 +56,7 @@ def print_different_headers(csv_headers, schema_headers):
         schema_headers (list): A list of header names from a schema.
     """
     msg = []
+
     if csv_headers == schema_headers:
         print("Headers are in the same order.")
         return "None"
@@ -63,10 +64,9 @@ def print_different_headers(csv_headers, schema_headers):
     print("Headers are in a different order:")
     for i, (csv_header, schema_header) in enumerate(zip(csv_headers, schema_headers)):
         if csv_header != schema_header:
-            msg.append(f"Position {i+1}: CSV has '{csv_header}', Schema has '{schema_header}'")
-
+            msg.append({"Position": i, "CSV Header": csv_header, "Schema Header": schema_header})
+            
     return(msg)
-
 
 if __name__ == "__main__":
     app_name = sys.argv[1]  # Get app_name from command-line argument

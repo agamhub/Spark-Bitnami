@@ -10,10 +10,13 @@ RUN useradd -u 1000 -g root agam && \
 
 #COPY requirements.txt /tmp/requirements.txt
 COPY libraryPy/ /tmp/libraryPy/
+COPY openpyxl/ /tmp/openpyxl/
+COPY jars/ /opt/bitnami/spark/jars/
 
 # Install Python dependencies
 #RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
 RUN pip install --no-index --find-links=/tmp/libraryPy/ pandas tabulate jupyterlab
+RUN pip install --no-index --find-links=/tmp/openpyxl/ openpyxl
 
 # Set environment variables for Spark
 ENV SPARK_HOME=/opt/bitnami/spark

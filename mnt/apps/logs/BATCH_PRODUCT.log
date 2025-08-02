@@ -1,0 +1,8 @@
+2025-05-10 15:13:20,399 - INFO - +-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
+| BatchName | JobName | SourceDirectory | FileName | FileType | Flag | Delimiter | Backdated | Refreshment | Reformat |
++-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
++-----------+---------+-----------------+----------+----------+------+-----------+-----------+-------------+----------+
+2025-05-10 15:13:20,400 - WARNING - Please enable flag to 1 if you want to re-order Data Movement
+25/05/10 15:13:20 INFO ShutdownHookManager: Shutdown hook called
+25/05/10 15:13:20 INFO ShutdownHookManager: Deleting directory /tmp/spark-70282f0f-8750-42a8-96b2-d65774e7f244
+Sat May 10 15:13:20 UTC 2025 - BASH - Spark job 'BATCH_PRODUCT' completed
